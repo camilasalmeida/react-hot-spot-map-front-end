@@ -1,16 +1,17 @@
 // src/App.jsx
 
-import { useState, useTransition } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
-import { Link } from 'react-router-dom';
+import { useState, useTransition } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar/NavBar'
+import { Link } from 'react-router-dom' 
 import Landing from './components/Landing/Landing'
 import Dashboard from './components/Dashboard/Dashboard'
 import SignupForm from './components/SignupForm/SignupForm'
 import SigninForm from './components/SigninForm/SigninForm'
+import * as authService from '../src/services/authService'
 
 const App = () => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(authService.getUser())
 
 
 
