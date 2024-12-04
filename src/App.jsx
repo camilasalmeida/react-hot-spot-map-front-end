@@ -11,6 +11,7 @@ import SigninForm from './components/SigninForm/SigninForm'
 import * as authService from '../src/services/authService'
 import SpotList from './components/SpotList/SpotList'
 import * as spotService from'../src/services/spotService'                          // This syntax is a great way to import everything (*) from the module. Within src/App.jsx, individual functions can be called upon with dot notation through the spotService object.
+import SpotDetails from './components/SpotDetails/SpotDetails'
 
 
 const App = () => {
@@ -41,6 +42,8 @@ const handleSignout = () => {
         <> 
         <Route path="/" element={<Dashboard user={user} />} />
         <Route path="/spots" element={<SpotList spots={spots} />} />
+        <Route path="/spots/:spotId" element={<SpotDetails />} />
+        
         </>
       ) : (
         // Public Routes:
