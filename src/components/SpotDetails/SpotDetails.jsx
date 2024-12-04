@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react"
 import * as spotService from '../../services/spotService'
 import { useParams } from "react-router-dom"                          // This imports the useParams hook from react-router-dom. The useParams hook allows you to access the dynamic portions of the URL, known as route parameters. When your app uses routes like /spots/:spotId, the spotId part of the URL is dynamic and changes depending on the spot. useParams makes it easy to extract that dynamic value so you can use it within your component.
+import GuestForm from "../GuestForm/GuestForm";
+
 
 const SpotDetails = (props) => {
     const { spotId } = useParams()                                    // Extracts the spotId parameter from the URL. If your route is /spots/:spotId, the value of :spotId in the URL will be assigned to the spotId variable.
@@ -18,6 +20,11 @@ const SpotDetails = (props) => {
         fetchSpot()
     }, [spotId])                                                        // Remember to include spotId in the dependency array of your useEffect(). This tells the useEffect() to fire off whenever the value of the spotId changes.
     console.log('spot state is: ', spot)
+
+
+const handleAddGuest = async (guestFormData) => {
+    console.log('guestFormData is: ', guestFormData)
+}
 
     if (!spot) return <main>Loading...</main>
     return (
@@ -37,6 +44,12 @@ const SpotDetails = (props) => {
                 <h3>Guests: {spot.guests._guestId}</h3> */}
             </header>
             <section>
+
+
+
+                <h1>Guest Form</h1>
+                <GuestForm handleAddGuest={handleAddGuest}/>
+
                 <h1>Guests</h1>
                 {!spot.guests.length && <p>There are no guests.</p>}
                 {spot.guests.map((guest) => (
@@ -54,6 +67,12 @@ const SpotDetails = (props) => {
                         <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
                     </article>
                 ))}
+
+
+
+
+
+              
             </section>
         </main>
     )
