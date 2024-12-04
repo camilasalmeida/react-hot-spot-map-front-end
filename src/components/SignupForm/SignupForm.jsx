@@ -1,8 +1,8 @@
 // SignupForm.jsx
 
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import * as authService from '../../services/authService';
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import * as authService from '../../services/authService'
 
 const SignupForm = (props) => {
   const navigate = useNavigate();
@@ -12,29 +12,27 @@ const SignupForm = (props) => {
     email: '',
     password: '',
     passwordConf: '',
-  });
+  })
 
   const updateMessage = (msg) => {
-    setMessage(msg);
-  };
+    setMessage(msg)
+  }
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (isFormInvalid()) {
-        updateMessage('Please fill out all fields correctly.');
-        return;
+        updateMessage('Please fill out all fields correctly.')
+        return
       }
-
     try{
         const newUserResponse = await authService.signup(formData)                    // The signup function from authService.js is called. It sends the formData { username, email, password, passwordConf } to our backend API. The response from the backend API is assigned to the newUserResponse variable. This response typically contains the created user details and possibly a token.
         props.setUser(newUserResponse.user)                                           // That will modify the state in the App component. By calling props.setUser, the user information is stored in the parent component’s state. This typically updates the app’s global user state to reflect that a user is now signed in.
         navigate('/')
-
-        console.log('Form submitted successfully:', formData);                        // This line will print the form data to the console
+        console.log('Form submitted successfully:', formData)                       // This line will print the form data to the console
     } catch (error) {
         updateMessage(error.message)
     }
@@ -43,8 +41,8 @@ const SignupForm = (props) => {
   const { username, email, password, passwordConf } = formData;
 
   const isFormInvalid = () => {
-    return !(username && email && password && password === passwordConf);
-  };
+    return !(username && email && password && password === passwordConf)
+  }
 
   return (
     <main>
@@ -103,7 +101,7 @@ const SignupForm = (props) => {
         </div>
       </form>
     </main>
-  );
-};
+  )
+}
 
-export default SignupForm;
+export default SignupForm
