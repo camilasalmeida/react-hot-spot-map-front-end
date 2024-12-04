@@ -5,7 +5,6 @@ import * as spotService from '../../services/spotService'
 import { useParams } from "react-router-dom"                          // This imports the useParams hook from react-router-dom. The useParams hook allows you to access the dynamic portions of the URL, known as route parameters. When your app uses routes like /spots/:spotId, the spotId part of the URL is dynamic and changes depending on the spot. useParams makes it easy to extract that dynamic value so you can use it within your component.
 import GuestForm from "../GuestForm/GuestForm";
 
-
 const SpotDetails = (props) => {
     const { spotId } = useParams()                                    // Extracts the spotId parameter from the URL. If your route is /spots/:spotId, the value of :spotId in the URL will be assigned to the spotId variable.
     //console.log('spotId is: ', spotId)
@@ -23,11 +22,13 @@ const SpotDetails = (props) => {
 
 
 const handleAddGuest = async (guestFormData) => {
-    console.log('guestFormData is: ', guestFormData)
+    //console.log('guestFormData is: ', guestFormData)
+    const newGuest = await spotService.createGuest(spotId, guestFormData)
+    setSpot({ ...spot, guests: [...spot.guests, newGuest] })
 }
 
-    if (!spot) return <main>Loading...</main>
-    return (
+if (!spot) return <main>Loading...</main>
+return (
         <main> Spot Details page!
             <header>
                 <p>{spot.category.toUpperCase()}</p>
@@ -44,7 +45,6 @@ const handleAddGuest = async (guestFormData) => {
                 <h3>Guests: {spot.guests._guestId}</h3> */}
             </header>
             <section>
-
 
 
                 <h1>Guest Form</h1>
@@ -68,11 +68,6 @@ const handleAddGuest = async (guestFormData) => {
                     </article>
                 ))}
 
-
-
-
-
-              
             </section>
         </main>
     )

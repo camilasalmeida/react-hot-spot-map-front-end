@@ -1,7 +1,7 @@
 // src/components/GuestForm/GuestForm.jsx
 
-import { useState, useEffect } from 'react';
-import * as spotService from '../../services/spotService';
+import { useState, useEffect } from 'react'
+import * as spotService from '../../services/spotService'
 
 const GuestForm = (props) => {
   const [formData, setFormData] = useState({ 
@@ -12,15 +12,14 @@ const GuestForm = (props) => {
     message: '',
     status: 'Pending',
     image: '',                     // Treated as a string
-   });
+   })
 
   const handleChange = (evt) => {
     if (evt.target.type === "file") {
         console.log(evt.target.files[0]); // Log the file object
     } else {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
-  }};
-
+  }}
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -34,7 +33,7 @@ const GuestForm = (props) => {
       status: 'Pending',
       image: '',
      });
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -114,10 +113,9 @@ const GuestForm = (props) => {
       />
       <small>Accepted file types: JPG, PNG, etc.</small>
 
-
       <button type="submit">SUBMIT GUEST</button>
     </form>
-  );
-};
+  )
+}
 
-export default GuestForm;
+export default GuestForm
