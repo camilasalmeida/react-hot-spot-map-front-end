@@ -1,7 +1,7 @@
 // src/NavBar/NavBar.jsx
 import { Link } from 'react-router-dom';
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user, handleSignout }) => {
 
     return (
         <>
@@ -9,7 +9,7 @@ const NavBar = ({ user }) => {
                 <nav>
                     <ul>
                         <li><Link to="/">Home Page</Link></li>
-                        <li><Link to="">Sign Out</Link></li>
+                        <li><Link to="" onClick={handleSignout}>Sign Out</Link></li>
                     </ul>
                 </nav>
             ) : ( 

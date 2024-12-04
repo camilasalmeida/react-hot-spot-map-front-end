@@ -53,4 +53,8 @@ const signin = async (user) => {                                              //
     return user                                                               // Return user details in JavaScript object.
   }
 
-export { signup, signin, getUser, }
+  const signout = () => {
+    localStorage.removeItem('token')                                        // Token-based authentication, we didn’t even need to make a fetch request to our back-end. This is because token authentication is stateless, as Express keeps no records of the tokens it has issued.
+  }
+
+export { signup, signin, getUser, signout }
