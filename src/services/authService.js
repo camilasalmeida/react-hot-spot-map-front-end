@@ -14,7 +14,10 @@ const signup = async (formData) => {                                           /
         if (json.error) {
             throw new Error(json.error)
         }
-        return json
+        if (json.token) {                                                       // json.token: Checks if the server response includes a token property (the JWT).
+            localStorage.setItem('token', json.token)   
+        }
+            return json
     } catch (error) {
         console.log(error)
         throw error
@@ -28,13 +31,12 @@ const signin = async (user) => {                                              //
         headers: { 'Content-Type': 'application/json' },                     // Headers: Sets the Content-Type to application/json to indicate the type of data being sent.
         body: JSON.stringify(user),                                          // Body: Converts the user object into a JSON string using JSON.stringify(user) to include it in the request body.
       })
-      const json = await res.json()                                          // res.json(): Extracts the JSON data from the API response (res). Waits for the JSON parsing to complete, then stores the result in the json variable.
-  
-      if (json.error) {
-        throw new Error(json.error)
-      }
-  
+      const json = await res.json()                                           // res.json(): Extracts the JSON data from the API response (res). Waits for the JSON parsing to complete, then stores the result in the json variable.
+        if (json.error) {
+      throw new Error(json.error)
+    }
       if (json.token) {                                                       // json.token: Checks if the server response includes a token property (the JWT).
+        localStorage.setItem('token', json.token)                             // localStorage is a built-in browser storage mechanism that allows you to store data persistently across browser sessions. Unlike sessionStorage, which clears data when the browser tab is closed, localStorage retains data even when the browser is closed and reopened. setItem is a method of localStorage that stores a key-value pair. key: The name of the item you want to store. In this case, "token" is the key. value: The data you want to store. Here, json.token is the value being saved. It’s the JWT (JSON Web Token) returned from your backend upon successful login.
         const user = JSON.parse(atob(json.token.split('.')[1]));              // Extracts user details from token. son.token.split('.')[1]: Splits the JWT into its three parts (header, payload, signature) and extracts the second part (payload). atob(...): Decodes the Base64-encoded payload into a readable string. JSON.parse(...): Converts the decoded JSON string into a JavaScript object (the user details).
         return user
       }
@@ -43,9 +45,5 @@ const signin = async (user) => {                                              //
       throw err
     }
   }
-
-
-
-
 
 export { signup, signin, }
