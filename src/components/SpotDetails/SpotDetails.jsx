@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import * as spotService from '../../services/spotService'
 import { useParams } from "react-router-dom"                          // This imports the useParams hook from react-router-dom. The useParams hook allows you to access the dynamic portions of the URL, known as route parameters. When your app uses routes like /spots/:spotId, the spotId part of the URL is dynamic and changes depending on the spot. useParams makes it easy to extract that dynamic value so you can use it within your component.
 
-
 const SpotDetails = (props) => {
     const { spotId } = useParams()                                    // Extracts the spotId parameter from the URL. If your route is /spots/:spotId, the value of :spotId in the URL will be assigned to the spotId variable.
     //console.log('spotId is: ', spotId)
@@ -20,13 +19,8 @@ const SpotDetails = (props) => {
     }, [spotId])                                                        // Remember to include spotId in the dependency array of your useEffect(). This tells the useEffect() to fire off whenever the value of the spotId changes.
     console.log('spot state is: ', spot)
 
-
-
     if (!spot) return <main>Loading...</main>
-
-
     return (
-
         <main> Spot Details page!
             <header>
                 <p>{spot.category.toUpperCase()}</p>
@@ -53,7 +47,6 @@ const SpotDetails = (props) => {
                             {new Date(spot.createdAt).toLocaleTimeString()}
                             </p>
                         </header>
-                        
                         <p><strong>{guest.name}</strong> ({guest.email})</p>
                         <p><strong>Hosted by:</strong>{" "}{guest.author.username || "Unknown"}</p>
                         <p><strong>Status:</strong> {guest.status}</p>
@@ -61,12 +54,9 @@ const SpotDetails = (props) => {
                         <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
                     </article>
                 ))}
-
             </section>
         </main>
     )
 }
-
-
 
 export default SpotDetails

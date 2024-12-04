@@ -11,7 +11,7 @@ const SpotList = (props) => {
         <Link key={spot._id} to={`/spots/${spot._id}`}>
           <article>
             <header>
-              <h2>{spot.spotName}</h2>
+              <h2><strong>{spot.spotName.toUpperCase()}</strong></h2>
               <p>
                 {spot.author.username} listed on{" "}
                 {new Date(spot.createdAt).toLocaleDateString()} at{" "}

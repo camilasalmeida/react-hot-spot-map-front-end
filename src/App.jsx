@@ -1,7 +1,7 @@
 // src/App.jsx
 
 import { useState, useTransition, createContext, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import { Link } from 'react-router-dom' 
 import Landing from './components/Landing/Landing'
@@ -12,11 +12,14 @@ import * as authService from '../src/services/authService'
 import SpotList from './components/SpotList/SpotList'
 import * as spotService from'../src/services/spotService'                          // This syntax is a great way to import everything (*) from the module. Within src/App.jsx, individual functions can be called upon with dot notation through the spotService object.
 import SpotDetails from './components/SpotDetails/SpotDetails'
+import SpotForm from './components/SpotForm/SpotForm'
 
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [spots, setSpots] = useState([])                                        // State variable to store a list of spots from our backend.
+
+  const navigate = useNavigate()
 
 useEffect(() => {                                                               // Use useEffect to trigger our index service function.
   const fetchAllSpots = async () => {
@@ -33,6 +36,13 @@ const handleSignout = () => {
   setUser(null)
 }
 
+const handleAddSpot = async (spotFormData) => {
+  const newSpot = await spotService.create(spotFormData)
+  setSpots([newSpot, ...spots])
+  console.log('spotFormData is:', spotFormData)
+  navigate('/spots')
+}
+
   return (
     <>
     <NavBar user={user} handleSignout={handleSignout} />
@@ -43,7 +53,8 @@ const handleSignout = () => {
         <Route path="/" element={<Dashboard user={user} />} />
         <Route path="/spots" element={<SpotList spots={spots} />} />
         <Route path="/spots/:spotId" element={<SpotDetails />} />
-        
+        <Route path="/spots/new" element={<SpotForm handleAddSpot={handleAddSpot} />} />
+
         </>
       ) : (
         // Public Routes:
