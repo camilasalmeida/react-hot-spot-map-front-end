@@ -56,5 +56,18 @@ const createGuest = async (spotId, guestFormData) => {
     }
 }
 
+const deleteSpot = async (spotId) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${spotId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            return res.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-export { index, show, create, createGuest, }
+export { index, show, create, createGuest, deleteSpot, }

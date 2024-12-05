@@ -1,6 +1,6 @@
 // src/App.jsx
 
-import { useState, useTransition, createContext, useEffect } from 'react'
+import { useState, createContext, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import { Link } from 'react-router-dom' 
@@ -14,6 +14,7 @@ import * as spotService from'../src/services/spotService'                       
 import SpotDetails from './components/SpotDetails/SpotDetails'
 import SpotForm from './components/SpotForm/SpotForm'
 
+export const AuthedUserContext = createContext(null);
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -30,7 +31,6 @@ useEffect(() => {                                                               
   if (user) fetchAllSpots()
 }, [user]);
 
-
 const handleSignout = () => {
   authService.signout()
   setUser(null)
@@ -43,8 +43,18 @@ const handleAddSpot = async (spotFormData) => {
   navigate('/spots')
 }
 
+const handleDeleteSpot = async (spotId) => {
+  console.log('spotId to be deleted is:', spotId)
+  const deletedSpot = await spotService.deleteSpot(spotId)
+  setSpots(spots.filter((spot) => spot._id !== spotId))                          // Remember, the Array.prototype.filter() method returns a shallow copy of the array, excluding all elements that do not pass the test implemented by the provided callback function. The filter() method returns only the spot objects whose _id values do not match the spotId.
+  navigate('/spots')
+}
+
+console.log('User in App.jsx:', user);
+
   return (
     <>
+    <AuthedUserContext.Provider value={user}>                                 
     <NavBar user={user} handleSignout={handleSignout} />
     <Routes>
       { user ? (
@@ -52,7 +62,7 @@ const handleAddSpot = async (spotFormData) => {
         <> 
         <Route path="/" element={<Dashboard user={user} />} />
         <Route path="/spots" element={<SpotList spots={spots} />} />
-        <Route path="/spots/:spotId" element={<SpotDetails />} />
+        <Route path="/spots/:spotId" element={<SpotDetails handleDeleteSpot={handleDeleteSpot} user={user} />} />
         <Route path="/spots/new" element={<SpotForm handleAddSpot={handleAddSpot} />} />
 
         </>
@@ -64,9 +74,13 @@ const handleAddSpot = async (spotFormData) => {
       <Route path="/signup" element={<SignupForm setUser={setUser} />} />
       <Route path="/signin" element={<SigninForm setUser={setUser} />} />
     </Routes>
+    </AuthedUserContext.Provider>
+
     <h1>Hello World!🌍 </h1>
     </>
   )
 }
 
 export default App
+
+// Don't forget to add that part, <AuthedUserContext.Provider value={user}> .
