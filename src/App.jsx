@@ -21,7 +21,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [spots, setSpots] = useState([])                                        // State variable to store a list of spots from our backend.
 
-  const navigate = useNavigate()
+const navigate = useNavigate()
 
 useEffect(() => {                                                               // Use useEffect to trigger our index service function.
   const fetchAllSpots = async () => {
