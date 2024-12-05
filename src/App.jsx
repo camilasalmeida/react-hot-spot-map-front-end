@@ -50,6 +50,13 @@ const handleDeleteSpot = async (spotId) => {
   navigate('/spots')
 }
 
+const handleUpdateSpot = async (spotId, spotFormData) => {
+  const updatedSpot = await spotService.update(spotId, spotFormData)
+  setSpots(spots.map((spot) => (spotId === spot._id ? updatedSpot : spot)))
+  //console.log('handleUpdate Id:', spotId, 'spotFormData UPDATE:', spotFormData)
+  navigate(`/spots/${spotId}`)
+}
+
 console.log('User in App.jsx:', user);
 
   return (
@@ -64,6 +71,7 @@ console.log('User in App.jsx:', user);
         <Route path="/spots" element={<SpotList spots={spots} />} />
         <Route path="/spots/:spotId" element={<SpotDetails handleDeleteSpot={handleDeleteSpot} user={user} />} />
         <Route path="/spots/new" element={<SpotForm handleAddSpot={handleAddSpot} />} />
+        <Route path="/spots/:spotId/edit" element={<SpotForm handleUpdateSpot={handleUpdateSpot} />} />
 
         </>
       ) : (

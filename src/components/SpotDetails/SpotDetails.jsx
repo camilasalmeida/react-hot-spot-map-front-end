@@ -5,6 +5,7 @@ import * as spotService from '../../services/spotService'
 import { useParams } from "react-router-dom"                          // This imports the useParams hook from react-router-dom. The useParams hook allows you to access the dynamic portions of the URL, known as route parameters. When your app uses routes like /spots/:spotId, the spotId part of the URL is dynamic and changes depending on the spot. useParams makes it easy to extract that dynamic value so you can use it within your component.
 import GuestForm from "../GuestForm/GuestForm";
 import { AuthedUserContext } from '../../App';                        // This makes the logged in user object easily accessible throughout our component tree.
+import { Link } from 'react-router-dom';
 
 
 const SpotDetails = (props) => {
@@ -51,6 +52,7 @@ return (
            {spot.author?._id === user?._id && (
             <>
               <button onClick={() => {props.handleDeleteSpot(spotId)}}>Delete</button>
+              <Link to={`/spots/${spotId}/edit`}>Edit</Link>
             </>
           )}
 

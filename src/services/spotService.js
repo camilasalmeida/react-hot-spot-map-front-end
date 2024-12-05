@@ -70,4 +70,22 @@ const deleteSpot = async (spotId) => {
     }
 }
 
-export { index, show, create, createGuest, deleteSpot, }
+async function update(spotId, spotFormData) {
+    try {
+        const res = await fetch(`${BASE_URL}/${spotId}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(spotFormData),
+        })
+        return res.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+export { index, show, create, createGuest, deleteSpot, update }

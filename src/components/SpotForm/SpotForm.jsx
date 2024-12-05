@@ -1,6 +1,8 @@
 // src/components/SpotForm/SpotForm.jsx
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useParams } from 'react-router-dom';
+import * as spotService from '../../services/spotService'
 
 const SpotForm = (props) => {
   const [formData, setFormData] = useState({
@@ -10,19 +12,35 @@ const SpotForm = (props) => {
     dresscode: '',
   })
 
+  const { spotId } = useParams()
+  //console.log('spotId in spotForm is:', spotId)
+
+  useEffect(() => {
+    const fetchSpot = async () => {
+        const spotData = await spotService.show(spotId)
+        setFormData(spotData)
+    }
+    if (spotId) fetchSpot()
+}, [spotId])
+
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log("formData", formData);
+    if (spotId) {
+        props.handleUpdateSpot(spotId, formData)
+    } else {
+    //console.log("formData", formData);
     props.handleAddSpot(formData)
   }
+}
 
   return (
     <main>
       <form onSubmit={handleSubmit}>
+        <h1>{spotId ? 'Edit Spot' : 'New Spot'}</h1>
         <label htmlFor="spotName">Spot Name*</label>
         <input
           required
