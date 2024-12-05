@@ -40,7 +40,8 @@ const { spotId, guestId } = useParams();
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleSubmit = (evt) => {
+  // Send an email to the guest upon submission.
+  const handleSubmit = async (evt) => {           
     evt.preventDefault();
       if (spotId && guestId) {
           spotService.updateGuest(spotId, guestId, formData);
@@ -50,13 +51,13 @@ const { spotId, guestId } = useParams();
        }
   
     setFormData({
-      name: "",
-      email: "",
-      date: "",
-      time: "",
-      message: "",
-      status: "Pending",
-      image: "",
+      name: '',
+      email: '',
+      date: '',
+      time: '',
+      message: '',
+      status: 'Pending',
+      image: '',
     });
   };
 //-------------------------------------------------------------------------------\\

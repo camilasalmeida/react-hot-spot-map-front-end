@@ -116,4 +116,21 @@ const updateGuest = async (spotId, guestId, guestFormData) => {
     }
 }
 
-export { index, show, create, createGuest, deleteSpot, updateSpot, deleteGuest, updateGuest }
+const respondToInvitation = async (spotId, guestId, status) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}/respond`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ status }),
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+export { index, show, create, createGuest, deleteSpot, updateSpot, deleteGuest, updateGuest, respondToInvitation }

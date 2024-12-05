@@ -41,6 +41,17 @@ const handleDeleteGuest = async (guestId) => {
     })
   };
 
+const handleResponse = async (guestId, status) => {
+    const updatedGuest = await spotService.respondToInvitation(spotId, guestId, status);
+    setSpot({
+        ...spot,
+        guests: spot.guests.map((guest) =>
+            guest._id === guestId ? { ...guest, status } : guest
+        ),
+    });
+};
+
+
 if (!spot) return <main>Loading...</main>
 return (
         <main> 
@@ -76,7 +87,7 @@ return (
                     <article key={guest._id}> 
                         <header>
                             <p>
-                            <strong>{guest.author.username}</strong> posted on {' '}            
+                            <strong>{guest.author.username.toUpperCase()}</strong> posted on {' '}            
                             {new Date(spot.createdAt).toLocaleDateString()} at {' '}
                             {new Date(spot.createdAt).toLocaleTimeString()}
                             </p>
@@ -86,9 +97,11 @@ return (
                             <p><strong>Date:</strong>{" "}{guest.date ? new Date(guest.date).toLocaleDateString() : "N/A"}{" "}at {guest.time || "N/A"}</p>
                             <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
                             <p><strong>Image:</strong>ADD IMAGE</p>
+                            
 
                            {guest.author._id === user._id && (
                             <>
+
                             <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
                             <button onClick={()=> handleDeleteGuest(guest._id)}>delete Guest</button>
                             </>
