@@ -70,7 +70,7 @@ const deleteSpot = async (spotId) => {
     }
 }
 
-async function update(spotId, spotFormData) {
+async function updateSpot(spotId, spotFormData) {
     try {
         const res = await fetch(`${BASE_URL}/${spotId}`, {
             method: 'PUT',
@@ -100,21 +100,20 @@ const deleteGuest = async (spotId, guestId) => {
     }
 }
 
-// const updateGuest = async (spotId, guestId, guestFormData) => {
-//     try {
-//         const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
-//             method: 'PUT',
-//             headers: {
-//                 Authorization: `Bearer ${localStorage.getItem('token')}`,
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify(guestFormData),
-//         })
-//         return res.json();
-//     } catch (error) {
-//         console.log('Error updating guest: ', error);
-//     }
-// }
+const updateGuest = async (spotId, guestId, guestFormData) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(guestFormData),
+        })
+        return res.json();
+    } catch (error) {
+        console.log('Error updating guest: ', error);
+    }
+}
 
-
-export { index, show, create, createGuest, deleteSpot, update, deleteGuest }
+export { index, show, create, createGuest, deleteSpot, updateSpot, deleteGuest, updateGuest }

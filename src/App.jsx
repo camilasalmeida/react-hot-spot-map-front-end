@@ -15,7 +15,7 @@ import SpotDetails from './components/SpotDetails/SpotDetails'
 import SpotForm from './components/SpotForm/SpotForm'
 import GuestForm from './components/GuestForm/GuestForm'
 
-export const AuthedUserContext = createContext(null);
+export const AuthedUserContext = createContext(null); 
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -52,13 +52,14 @@ const handleDeleteSpot = async (spotId) => {
 }
 
 const handleUpdateSpot = async (spotId, spotFormData) => {
-  const updatedSpot = await spotService.update(spotId, spotFormData)
+  const updatedSpot = await spotService.updateSpot(spotId, spotFormData)
   setSpots(spots.map((spot) => (spotId === spot._id ? updatedSpot : spot)))
   //console.log('handleUpdate Id:', spotId, 'spotFormData UPDATE:', spotFormData)
   navigate(`/spots/${spotId}`)
 }
 
 console.log('User in App.jsx:', user);
+//console.log('App Route params: ', { spotId, guestId })
 
   return (
     <>
@@ -73,7 +74,7 @@ console.log('User in App.jsx:', user);
         <Route path="/spots/:spotId" element={<SpotDetails handleDeleteSpot={handleDeleteSpot} />} />
         <Route path="/spots/new" element={<SpotForm handleAddSpot={handleAddSpot} />} />
         <Route path="/spots/:spotId/edit" element={<SpotForm handleUpdateSpot={handleUpdateSpot} />} />
-        {/* <Route path="/spots/:spotId/guests/:guestId/edit" element={<GuestForm />} /> */}
+        <Route path="/spots/:spotId/guests/:guestId/edit" element={<GuestForm />} />
         </>
       ) : (
         // Public Routes:
@@ -85,7 +86,6 @@ console.log('User in App.jsx:', user);
     </AuthedUserContext.Provider>
     <h1>Hello World!🌍 </h1>
     </>
-  
   )
 }
 

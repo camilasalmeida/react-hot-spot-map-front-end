@@ -2,11 +2,10 @@
 
 import { useState, useEffect, useContext } from "react"
 import * as spotService from '../../services/spotService'
-import { useParams } from "react-router-dom"                          // This imports the useParams hook from react-router-dom. The useParams hook allows you to access the dynamic portions of the URL, known as route parameters. When your app uses routes like /spots/:spotId, the spotId part of the URL is dynamic and changes depending on the spot. useParams makes it easy to extract that dynamic value so you can use it within your component.
+                                                                       // This imports the useParams hook from react-router-dom. The useParams hook allows you to access the dynamic portions of the URL, known as route parameters. When your app uses routes like /spots/:spotId, the spotId part of the URL is dynamic and changes depending on the spot. useParams makes it easy to extract that dynamic value so you can use it within your component.
 import GuestForm from "../GuestForm/GuestForm";
 import { AuthedUserContext } from '../../App';                        // This makes the logged in user object easily accessible throughout our component tree.
-import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const SpotDetails = (props) => {
     const [spot, setSpot] = useState(null)
@@ -15,7 +14,6 @@ const SpotDetails = (props) => {
 
     const { spotId } = useParams();                                    // Extracts the spotId parameter from the URL. If your route is /spots/:spotId, the value of :spotId in the URL will be assigned to the spotId variable.
     // //console.log('spotId is: ', spotId)
-
 
     useEffect(() => {                                                  // The useEffect hook in React runs a piece of code after the component renders. It allows you to perform side effects, such as fetching data or interacting with APIs. The useEffect will re-run only if the hootId value changes. If the hootId remains the same, the effect will not re-run. (Dependency Array([spotId]))
         const fetchSpot = async () => {
@@ -26,8 +24,6 @@ const SpotDetails = (props) => {
         fetchSpot()
     }, [spotId])                                                        // Remember to include spotId in the dependency array of your useEffect(). This tells the useEffect() to fire off whenever the value of the spotId changes.
     //console.log('spot state is: ', spot)
-
- 
 
 const handleAddGuest = async (guestFormData) => {
     //console.log('guestFormData is: ', guestFormData)
@@ -71,8 +67,6 @@ return (
             </header>
             <section>
 
-
-
                 <h1>Guests, guest Form</h1>
                 <GuestForm handleAddGuest={handleAddGuest}/>
 
@@ -95,7 +89,7 @@ return (
 
                            {guest.author._id === user._id && (
                             <>
-                            {/* <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link> */}
+                            <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
                             <button onClick={()=> handleDeleteGuest(guest._id)}>delete Guest</button>
                             </>
                         )}
