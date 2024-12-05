@@ -13,6 +13,7 @@ import SpotList from './components/SpotList/SpotList'
 import * as spotService from'../src/services/spotService'                          // This syntax is a great way to import everything (*) from the module. Within src/App.jsx, individual functions can be called upon with dot notation through the spotService object.
 import SpotDetails from './components/SpotDetails/SpotDetails'
 import SpotForm from './components/SpotForm/SpotForm'
+import GuestForm from './components/GuestForm/GuestForm'
 
 export const AuthedUserContext = createContext(null);
 
@@ -44,7 +45,7 @@ const handleAddSpot = async (spotFormData) => {
 }
 
 const handleDeleteSpot = async (spotId) => {
-  console.log('spotId to be deleted is:', spotId)
+  //console.log('spotId to be deleted is:', spotId)
   const deletedSpot = await spotService.deleteSpot(spotId)
   setSpots(spots.filter((spot) => spot._id !== spotId))                          // Remember, the Array.prototype.filter() method returns a shallow copy of the array, excluding all elements that do not pass the test implemented by the provided callback function. The filter() method returns only the spot objects whose _id values do not match the spotId.
   navigate('/spots')
@@ -72,13 +73,12 @@ console.log('User in App.jsx:', user);
         <Route path="/spots/:spotId" element={<SpotDetails handleDeleteSpot={handleDeleteSpot} user={user} />} />
         <Route path="/spots/new" element={<SpotForm handleAddSpot={handleAddSpot} />} />
         <Route path="/spots/:spotId/edit" element={<SpotForm handleUpdateSpot={handleUpdateSpot} />} />
-
+        <Route path="/spots/:spotId/guests/:guestId/edit" element={<GuestForm />} />
         </>
       ) : (
         // Public Routes:
         <Route path="/" element={<Landing />} />
       )}
-
       <Route path="/signup" element={<SignupForm setUser={setUser} />} />
       <Route path="/signin" element={<SigninForm setUser={setUser} />} />
     </Routes>

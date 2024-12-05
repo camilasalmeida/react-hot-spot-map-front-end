@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"                          // This im
 import GuestForm from "../GuestForm/GuestForm";
 import { AuthedUserContext } from '../../App';                        // This makes the logged in user object easily accessible throughout our component tree.
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 const SpotDetails = (props) => {
     const { spotId } = useParams();                                    // Extracts the spotId parameter from the URL. If your route is /spots/:spotId, the value of :spotId in the URL will be assigned to the spotId variable.
@@ -25,11 +25,21 @@ const SpotDetails = (props) => {
     }, [spotId])                                                        // Remember to include spotId in the dependency array of your useEffect(). This tells the useEffect() to fire off whenever the value of the spotId changes.
     //console.log('spot state is: ', spot)
 
+ 
 
 const handleAddGuest = async (guestFormData) => {
     //console.log('guestFormData is: ', guestFormData)
     const newGuest = await spotService.createGuest(spotId, guestFormData)
     setSpot({ ...spot, guests: [...spot.guests, newGuest] })
+}
+
+const handleDeleteGuest = async (guestId) => {
+    //console.log('guestId is:', guestId)
+    await spotService.deleteGuest(spotId, guestId)
+    setSpot({
+        ...spot,
+        guests: spot.guests.filter((guest) => guest._id !== guestId)
+    })
 }
 
 if (!spot) return <main>Loading...</main>
@@ -39,7 +49,7 @@ return (
                 <p>{spot.category.toUpperCase()}</p>
                 <h1>{spot.spotName.toUpperCase()}</h1>
                 <p> <strong> 
-                    {spot.author?.username || 'Unknown'}</strong> listed on {' '}
+                    {spot.author?.username || 'Unknown'}</strong> created on {' '}
                     {new Date(spot.createdAt).toLocaleDateString()} at {' '}
                     {new Date(spot.createdAt).toLocaleTimeString()}
                 </p>
@@ -55,7 +65,6 @@ return (
               <Link to={`/spots/${spotId}/edit`}>Edit</Link>
             </>
           )}
-
             </header>
             <section>
 
@@ -79,6 +88,14 @@ return (
                         <p><strong>Status:</strong> {guest.status}</p>
                         <p><strong>Date:</strong>{" "}{guest.date ? new Date(guest.date).toLocaleDateString() : "N/A"}{" "}at {guest.time || "N/A"}</p>
                         <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
+                        <p><strong>Image:</strong>ADD IMAGE</p>
+
+                        {guest.author._id === user._id && (
+                            <>
+                            <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
+                            <button onClick={() => handleDeleteGuest(guest._id)}>REMOVE GUEST</button>
+                            </>
+                        )}
                     </article>
                 ))}
 

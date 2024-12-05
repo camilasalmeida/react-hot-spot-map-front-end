@@ -27,17 +27,17 @@ const show = async (spotId) => {
 const create = async (spotFormData) => {
     try {
         const res = await fetch(BASE_URL, {
-        method: 'POST',
-        headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(spotFormData),                                                        // Body: Converts the user object into a JSON string using JSON.stringify(user) to include it in the request body.
-    })
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(spotFormData),                                                        // Body: Converts the user object into a JSON string using JSON.stringify(user) to include it in the request body.
+        })
+        return res.json();
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const createGuest = async (spotId, guestFormData) => {
@@ -51,7 +51,7 @@ const createGuest = async (spotId, guestFormData) => {
             body: JSON.stringify(guestFormData),                                                 // Body: Converts the user object into a JSON string using JSON.stringify(user) to include it in the request body. 
         })
         return res.json()
-    } catch {error}{
+    } catch { error } {
         console.log(error)
     }
 }
@@ -64,7 +64,7 @@ const deleteSpot = async (spotId) => {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         })
-            return res.json()
+        return res.json()
     } catch (error) {
         console.log(error)
     }
@@ -86,6 +86,35 @@ async function update(spotId, spotFormData) {
     }
 }
 
+const deleteGuest = async (spotId, guestId) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
+        return res.json();
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const updateGuest = async (spotId, guestId, guestFormData) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(guestFormData),
+        })
+        return res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
-export { index, show, create, createGuest, deleteSpot, update }
+export { index, show, create, createGuest, deleteSpot, update, deleteGuest, updateGuest }
