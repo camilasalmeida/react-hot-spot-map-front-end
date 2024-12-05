@@ -86,19 +86,19 @@ async function update(spotId, spotFormData) {
     }
 }
 
-// const deleteGuest = async (spotId, guestId) => {
-//     try {
-//         const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
-//             method: 'DELETE',
-//             headers: {
-//                 Authorization: `Bearer ${localStorage.getItem('token')}`,
-//             },
-//         });
-//         return res.json();
-//     } catch (error) {
-//         console.log('Error deleting guest: ', error)
-//     }
-// }
+const deleteGuest = async (spotId, guestId) => {
+    try {
+        const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
+        return res.json();
+    } catch (error) {
+        console.log('Error deleting guest: ', error)
+    }
+}
 
 // const updateGuest = async (spotId, guestId, guestFormData) => {
 //     try {
@@ -117,4 +117,4 @@ async function update(spotId, spotFormData) {
 // }
 
 
-export { index, show, create, createGuest, deleteSpot, update, }
+export { index, show, create, createGuest, deleteSpot, update, deleteGuest }

@@ -35,8 +35,14 @@ const handleAddGuest = async (guestFormData) => {
     setSpot({ ...spot, guests: [...spot.guests, newGuest] })
 }
 
-const handleDeleteGuest = async () => {
-    console.log('delete guest function is working:');
+const handleDeleteGuest = async (guestId) => {
+    console.log('delete guest function is working and the guestId is:', guestId);
+    const deletedGuest = await spotService.deleteGuest(spotId, guestId)
+    console.log('deletedGuest is: ', deletedGuest)
+    setSpot({
+        ...spot,
+        guests: spot.guests.filter((guest) => guest._id !== guestId),
+    })
   };
 
 if (!spot) return <main>Loading...</main>
@@ -72,12 +78,11 @@ return (
 
                 <h1>Guests</h1>
                 {!spot.guests?.length && <p>There are no guests.</p>}
-                {spot.guests?.map((guest) => (
+                {spot.guests.map((guest) => (
                     <article key={guest._id}> 
                         <header>
-                            <div> 
                             <p>
-                            <strong>{guest.author.username}</strong> invited on {' '}            
+                            <strong>{guest.author.username}</strong> posted on {' '}            
                             {new Date(spot.createdAt).toLocaleDateString()} at {' '}
                             {new Date(spot.createdAt).toLocaleTimeString()}
                             </p>
@@ -90,12 +95,11 @@ return (
 
                            {guest.author._id === user._id && (
                             <>
-                            <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
-                            <button onClick={()=> props.handleDeleteGuest}>delete Guest</button>
-                            
+                            {/* <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link> */}
+                            <button onClick={()=> handleDeleteGuest(guest._id)}>delete Guest</button>
                             </>
                         )}
-                        </div>
+                        
                         </header>
                     </article>
                 ))}
