@@ -9,11 +9,13 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 const SpotDetails = (props) => {
-    const { spotId } = useParams();                                    // Extracts the spotId parameter from the URL. If your route is /spots/:spotId, the value of :spotId in the URL will be assigned to the spotId variable.
-    //console.log('spotId is: ', spotId)
     const [spot, setSpot] = useState(null)
     const user = useContext(AuthedUserContext);
     //console.log('User CONTEXT:', user);
+
+    const { spotId } = useParams();                                    // Extracts the spotId parameter from the URL. If your route is /spots/:spotId, the value of :spotId in the URL will be assigned to the spotId variable.
+    // //console.log('spotId is: ', spotId)
+
 
     useEffect(() => {                                                  // The useEffect hook in React runs a piece of code after the component renders. It allows you to perform side effects, such as fetching data or interacting with APIs. The useEffect will re-run only if the hootId value changes. If the hootId remains the same, the effect will not re-run. (Dependency Array([spotId]))
         const fetchSpot = async () => {
@@ -33,14 +35,9 @@ const handleAddGuest = async (guestFormData) => {
     setSpot({ ...spot, guests: [...spot.guests, newGuest] })
 }
 
-const handleDeleteGuest = async (guestId) => {
-    //console.log('guestId is:', guestId)
-    await spotService.deleteGuest(spotId, guestId)
-    setSpot({
-        ...spot,
-        guests: spot.guests.filter((guest) => guest._id !== guestId)
-    })
-}
+const handleDeleteGuest = async () => {
+    console.log('delete guest function is working:');
+  };
 
 if (!spot) return <main>Loading...</main>
 return (
@@ -59,10 +56,10 @@ return (
                 {/* <h3>Author: {spot.author.username}</h3>
                 <h3>Guests: {spot.guests._guestId}</h3> */}
            
-           {spot.author?._id === user?._id && (
+           {spot.author._id === user._id && (
             <>
-              <button onClick={() => {props.handleDeleteSpot(spotId)}}>Delete</button>
               <Link to={`/spots/${spotId}/edit`}>Edit</Link>
+              <button onClick={() => props.handleDeleteSpot(spotId)}>Delete</button>
             </>
           )}
             </header>
@@ -70,35 +67,38 @@ return (
 
 
 
-                <h1>Guest Form</h1>
+                <h1>Guests, guest Form</h1>
                 <GuestForm handleAddGuest={handleAddGuest}/>
 
                 <h1>Guests</h1>
-                {!spot.guests.length && <p>There are no guests.</p>}
-                {spot.guests.map((guest) => (
+                {!spot.guests?.length && <p>There are no guests.</p>}
+                {spot.guests?.map((guest) => (
                     <article key={guest._id}> 
                         <header>
-                            <p><strong>{guest.author?.username || 'Unknown' }</strong> invited on {' '}            
+                            <div> 
+                            <p>
+                            <strong>{guest.author.username}</strong> invited on {' '}            
                             {new Date(spot.createdAt).toLocaleDateString()} at {' '}
                             {new Date(spot.createdAt).toLocaleTimeString()}
                             </p>
-                        </header>
-                        <p><strong>{guest.name}</strong> ({guest.email})</p>
-                        <p><strong>Hosted by:</strong>{" "}{guest.author.username || "Unknown"}</p>
-                        <p><strong>Status:</strong> {guest.status}</p>
-                        <p><strong>Date:</strong>{" "}{guest.date ? new Date(guest.date).toLocaleDateString() : "N/A"}{" "}at {guest.time || "N/A"}</p>
-                        <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
-                        <p><strong>Image:</strong>ADD IMAGE</p>
+                            <p><strong>{guest.name}</strong> ({guest.email})</p>
+                            <p><strong>Hosted by:</strong>{" "}{guest.author.username || "Unknown"}</p>
+                            <p><strong>Status:</strong> {guest.status}</p>
+                            <p><strong>Date:</strong>{" "}{guest.date ? new Date(guest.date).toLocaleDateString() : "N/A"}{" "}at {guest.time || "N/A"}</p>
+                            <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
+                            <p><strong>Image:</strong>ADD IMAGE</p>
 
-                        {guest.author._id === user._id && (
+                           {guest.author._id === user._id && (
                             <>
                             <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
-                            <button onClick={() => handleDeleteGuest(guest._id)}>REMOVE GUEST</button>
+                            <button onClick={()=> props.handleDeleteGuest}>delete Guest</button>
+                            
                             </>
                         )}
+                        </div>
+                        </header>
                     </article>
                 ))}
-
             </section>
         </main>
     )
@@ -107,3 +107,5 @@ return (
 //Ensures that if spot.author or user is null or undefined, it won’t throw an error. Instead, it will safely return undefined. {guest.author?.username || 'Unknown' }
 
 export default SpotDetails
+
+// <button onClick={() => props.handleDeleteGuest(guest._id)}>REMOVE GUEST</button>

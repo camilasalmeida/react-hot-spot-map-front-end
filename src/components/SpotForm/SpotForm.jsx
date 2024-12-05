@@ -41,7 +41,7 @@ const SpotForm = (props) => {
     <main>
       <form onSubmit={handleSubmit}>
         <h1>{spotId ? 'Edit Spot' : 'New Spot'}</h1>
-        <label htmlFor="spotName">Spot Name*</label>
+        <label htmlFor="spotName">Spot Name <span style={{ color: 'red' }}>*</span></label>
         <input
           required
           type="text"
@@ -58,7 +58,7 @@ const SpotForm = (props) => {
           value={formData.address}
           onChange={handleChange}
         />
-        <label htmlFor="category">Category*</label>
+        <label htmlFor="category">Category <span style={{ color: 'red' }}>*</span></label>
         <select
           required
           name="category"
@@ -94,7 +94,7 @@ const SpotForm = (props) => {
           <option value="Trip">Trip</option>
           <option value="Camping">Camping</option>
         </select>
-        <label htmlFor="dresscode">Dress Code*</label>
+        <label htmlFor="dresscode">Dress Code <span style={{ color: 'red' }}>*</span></label>
         <select 
         required 
         name="dresscode" 

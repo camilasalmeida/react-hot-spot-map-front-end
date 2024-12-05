@@ -5,9 +5,9 @@ import * as spotService from "../../services/spotService"
 import { useNavigate, useParams } from "react-router-dom"
 
 const GuestForm = (props) => {
-  const { spotId, guestId } = useParams()
-  //console.log('Guest Form, spotId:', spotId, 'guestId: ', guestId)
-  const navigate = useNavigate()
+//   const { spotId, guestId } = useParams()
+//   //console.log('Guest Form, spotId:', spotId, 'guestId: ', guestId)
+  //const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,36 +15,46 @@ const GuestForm = (props) => {
     time: "",
     message: "",
     status: "Pending",
-    image: "", // Treated as a string
+    image: "",                                 // Treated as a string
   })
 
-  useEffect(() => {
-    const fetchGuest = async () => {
-      try {
-        const spotData = await spotService.show(spotId);
-        const guestToEdit = spotData.guests.find(
-          (guest) => guest._id === guestId
-        );
-        if (guestToEdit) setFormData(guestToEdit);
-      } catch (error) {
-        console.log("Error fetching spot data:", error);
-      }
-    }
-    if (spotId && guestId) fetchGuest()                           // Only fetch if both spotId and guestId are true.
-  }, [spotId, guestId])
+//   useEffect(() => {
+//     const fetchGuest = async () => {
+//       try {
+//         const spotData = await spotService.show(spotId);
+//         const guestToEdit = spotData.guests.find(
+//           (guest) => guest._id === guestId
+//         );
+//         if (guestToEdit) setFormData(guestToEdit);
+//       } catch (error) {
+//         console.log("Error fetching spot data:", error);
+//       }
+//     }
+//     if (spotId && guestId) fetchGuest()                           // Only fetch if both spotId and guestId are true.
+//   }, [spotId, guestId])
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
   const handleSubmit = (evt) => {
-    evt.preventDefault()
-    if (spotId && guestId) {
-      spotService.updateGuest(spotId, guestId, formData);
-      navigate(`/spots/${spotId}`)
-    } else {
-      props.handleAddGuest(formData)
-    }
+    evt.preventDefault();
+    // if (spotId && guestId) {
+    //   try {
+    //     await spotService.updateGuest(spotId, guestId, formData);
+    //     navigate(`/spots/${spotId}`);
+    //   } catch (error) {
+    //     console.error("Error updating guest:", error);
+    //   }
+    // } else {
+    //   try {
+     props.handleAddGuest(formData);
+    //   } catch (error) {
+    //     console.error("Error adding guest:", error);
+    //   }
+    // }
+  
+    // // Reset the form data
     setFormData({
       name: "",
       email: "",
@@ -53,94 +63,94 @@ const GuestForm = (props) => {
       message: "",
       status: "Pending",
       image: "",
-    })
-  }
+    });
+  };
 
-  if (spotId && guestId)
-    return (
-      <form onSubmit={handleSubmit}>
-        <h2>Edit Guest</h2>
-        <label htmlFor="name">
-          Name <span style={{ color: "red" }}>*</span>
-        </label>
-        <input
-          required
-          type="text"
-          name="name"
-          id="name"
-          placeholder="example: Blake Peak"
-          value={formData.name || ""}
-          onChange={handleChange}
-        />
+  //if (spotId && guestId)
+    // return (
+    //   <form onSubmit={handleSubmit}>
+    //     <h2>Edit Guest</h2>
+    //     <label htmlFor="name">
+    //       Name <span style={{ color: "red" }}>*</span>
+    //     </label>
+    //     <input
+    //       required
+    //       type="text"
+    //       name="name"
+    //       id="name"
+    //       placeholder="example: Blake Peak"
+    //       value={formData.name || ""}
+    //       onChange={handleChange}
+    //     />
 
-        <label htmlFor="email">
-          Email <span style={{ color: "red" }}>*</span>
-        </label>
-        <input
-          required
-          type="email"
-          name="email"
-          id="email"
-          placeholder="blakepeak@example.com"
-          value={formData.email || ""}
-          onChange={handleChange}
-        />
+    //     <label htmlFor="email">
+    //       Email <span style={{ color: "red" }}>*</span>
+    //     </label>
+    //     <input
+    //       required
+    //       type="email"
+    //       name="email"
+    //       id="email"
+    //       placeholder="blakepeak@example.com"
+    //       value={formData.email || ""}
+    //       onChange={handleChange}
+    //     />
 
-        <label htmlFor="date">Date</label>
-        <input
-          type="date"
-          name="date"
-          id="date"
-          value={formData.date || ""}
-          onChange={handleChange}
-        />
+    //     <label htmlFor="date">Date</label>
+    //     <input
+    //       type="date"
+    //       name="date"
+    //       id="date"
+    //       value={formData.date || ""}
+    //       onChange={handleChange}
+    //     />
 
-        <label htmlFor="time">Time</label>
-        <input
-          type="time"
-          name="time"
-          id="time"
-          value={formData.time || ""}
-          onChange={handleChange}
-        />
+    //     <label htmlFor="time">Time</label>
+    //     <input
+    //       type="time"
+    //       name="time"
+    //       id="time"
+    //       value={formData.time || ""}
+    //       onChange={handleChange}
+    //     />
 
-        <label htmlFor="message">Message</label>
-        <textarea
-          name="message"
-          id="message"
-          value={formData.message || ""}
-          onChange={handleChange}
-          placeholder="Write your message or note here (optional)"
-        />
+    //     <label htmlFor="message">Message</label>
+    //     <textarea
+    //       name="message"
+    //       id="message"
+    //       value={formData.message || ""}
+    //       onChange={handleChange}
+    //       placeholder="Write your message or note here (optional)"
+    //     />
 
-        <label htmlFor="status">
-          Status<span style={{ color: "red" }}>*</span>
-        </label>
-        <select
-          required
-          name="status"
-          id="status"
-          value={formData.status || "Pending"} // Default to 'Pending' if undefined
-          onChange={handleChange}
-        >
-          <option value="Pending">Pending</option>
-          <option value="Confirmed">Confirmed</option>
-          <option value="Rejected">Rejected</option>
-        </select>
+    //     <label htmlFor="status">
+    //       Status<span style={{ color: "red" }}>*</span>
+    //     </label>
+    //     <select
+    //       required
+    //       name="status"
+    //       id="status"
+    //       value={formData.status || "Pending"} // Default to 'Pending' if undefined
+    //       onChange={handleChange}
+    //     >
+    //       <option value="Pending">Pending</option>
+    //       <option value="Confirmed">Confirmed</option>
+    //       <option value="Rejected">Rejected</option>
+    //     </select>
 
-        <label htmlFor="imageUpload">Upload Image (Optional)</label>
-        <input
-          type="file"
-          name="image"
-          id="imageUpload"
-          accept="image/*"
-          onChange={handleChange}
-        />
-        <small>Accepted file types: JPG, PNG, etc.</small>
+    //     <label htmlFor="imageUpload">Upload Image (Optional)</label>
+    //     <input
+    //       type="file"
+    //       name="image"
+    //       id="imageUpload"
+    //       accept="image/*"
+    //       onChange={handleChange}
+    //     />
+    //     <small>Accepted file types: JPG, PNG, etc.</small>
 
-        <button type="submit">SUBMIT UPDATE</button>
-      </form>
-    )
+    //     <button type="submit">SUBMIT UPDATE</button>
+    //   </form>
+    // )
 
   return (
     <form onSubmit={handleSubmit}>
@@ -222,8 +232,8 @@ const GuestForm = (props) => {
       />
       <small>Accepted file types: JPG, PNG, etc.</small>
 
-      <button type="submit">
-        {spotId && guestId ? "SUBMIT UPDATE" : "SUBMIT GUEST"}
+      <button type="submit">submit
+        {/* {spotId && guestId ? "SUBMIT UPDATE" : "SUBMIT GUEST"} */}
       </button>
     </form>
   )

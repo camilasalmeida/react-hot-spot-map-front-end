@@ -86,35 +86,35 @@ async function update(spotId, spotFormData) {
     }
 }
 
-const deleteGuest = async (spotId, guestId) => {
-    try {
-        const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
-            method: 'DELETE',
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-            },
-        });
-        return res.json();
-    } catch (error) {
-        console.log(error)
-    }
-}
+// const deleteGuest = async (spotId, guestId) => {
+//     try {
+//         const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 Authorization: `Bearer ${localStorage.getItem('token')}`,
+//             },
+//         });
+//         return res.json();
+//     } catch (error) {
+//         console.log('Error deleting guest: ', error)
+//     }
+// }
 
-const updateGuest = async (spotId, guestId, guestFormData) => {
-    try {
-        const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
-            method: 'PUT',
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(guestFormData),
-        })
-        return res.json();
-    } catch (error) {
-        console.log(error);
-    }
-}
+// const updateGuest = async (spotId, guestId, guestFormData) => {
+//     try {
+//         const res = await fetch(`${BASE_URL}/${spotId}/guests/${guestId}`, {
+//             method: 'PUT',
+//             headers: {
+//                 Authorization: `Bearer ${localStorage.getItem('token')}`,
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(guestFormData),
+//         })
+//         return res.json();
+//     } catch (error) {
+//         console.log('Error updating guest: ', error);
+//     }
+// }
 
 
-export { index, show, create, createGuest, deleteSpot, update, deleteGuest, updateGuest }
+export { index, show, create, createGuest, deleteSpot, update, }

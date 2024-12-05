@@ -47,7 +47,7 @@ const handleAddSpot = async (spotFormData) => {
 const handleDeleteSpot = async (spotId) => {
   //console.log('spotId to be deleted is:', spotId)
   const deletedSpot = await spotService.deleteSpot(spotId)
-  setSpots(spots.filter((spot) => spot._id !== spotId))                          // Remember, the Array.prototype.filter() method returns a shallow copy of the array, excluding all elements that do not pass the test implemented by the provided callback function. The filter() method returns only the spot objects whose _id values do not match the spotId.
+  setSpots(spots.filter((spot) => spot._id !== deletedSpot._id))                          // Remember, the Array.prototype.filter() method returns a shallow copy of the array, excluding all elements that do not pass the test implemented by the provided callback function. The filter() method returns only the spot objects whose _id values do not match the spotId.
   navigate('/spots')
 }
 
@@ -70,10 +70,10 @@ console.log('User in App.jsx:', user);
         <> 
         <Route path="/" element={<Dashboard user={user} />} />
         <Route path="/spots" element={<SpotList spots={spots} />} />
-        <Route path="/spots/:spotId" element={<SpotDetails handleDeleteSpot={handleDeleteSpot} user={user} />} />
+        <Route path="/spots/:spotId" element={<SpotDetails handleDeleteSpot={handleDeleteSpot} />} />
         <Route path="/spots/new" element={<SpotForm handleAddSpot={handleAddSpot} />} />
         <Route path="/spots/:spotId/edit" element={<SpotForm handleUpdateSpot={handleUpdateSpot} />} />
-        <Route path="/spots/:spotId/guests/:guestId/edit" element={<GuestForm />} />
+        {/* <Route path="/spots/:spotId/guests/:guestId/edit" element={<GuestForm />} /> */}
         </>
       ) : (
         // Public Routes:
@@ -83,9 +83,9 @@ console.log('User in App.jsx:', user);
       <Route path="/signin" element={<SigninForm setUser={setUser} />} />
     </Routes>
     </AuthedUserContext.Provider>
-
     <h1>Hello World!🌍 </h1>
     </>
+  
   )
 }
 
