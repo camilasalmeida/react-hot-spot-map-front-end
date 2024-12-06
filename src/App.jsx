@@ -15,7 +15,7 @@ import SpotDetails from './components/SpotDetails/SpotDetails'
 import SpotForm from './components/SpotForm/SpotForm'
 import GuestForm from './components/GuestForm/GuestForm'
 
-export const AuthedUserContext = createContext(null); 
+export const AuthedUserContext = createContext(null)
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
