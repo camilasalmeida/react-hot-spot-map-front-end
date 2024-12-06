@@ -78,7 +78,7 @@ return (
             </header>
             <section>
 
-                <h1>Guests, guest Form</h1>
+                <h1>Guest Form</h1>
                 <GuestForm handleAddGuest={handleAddGuest}/>
 
                 <h1>Guests</h1>

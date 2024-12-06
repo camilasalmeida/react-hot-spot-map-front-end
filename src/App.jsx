@@ -17,6 +17,7 @@ import GuestForm from './components/GuestForm/GuestForm'
 
 export const AuthedUserContext = createContext(null)
 
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [spots, setSpots] = useState([])                                        // State variable to store a list of spots from our backend.
@@ -83,6 +84,7 @@ console.log('User in App.jsx:', user);
       <Route path="/signup" element={<SignupForm setUser={setUser} />} />
       <Route path="/signin" element={<SigninForm setUser={setUser} />} />
     </Routes>
+
     </AuthedUserContext.Provider>
     <h1>Hello World!🌍 </h1>
     </>
