@@ -17,7 +17,6 @@ import GuestForm from './components/GuestForm/GuestForm'
 
 export const AuthedUserContext = createContext(null)
 
-
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [spots, setSpots] = useState([])                                        // State variable to store a list of spots from our backend.

@@ -6,6 +6,8 @@ import * as spotService from '../../services/spotService'
 import GuestForm from "../GuestForm/GuestForm";
 import { AuthedUserContext } from '../../App';                        // This makes the logged in user object easily accessible throughout our component tree.
 import { useParams, useNavigate, Link } from "react-router-dom";
+import styles from './SpotDetails.module.css'
+
 
 const SpotDetails = (props) => {
     const [spot, setSpot] = useState(null)
@@ -54,7 +56,7 @@ const handleResponse = async (guestId, status) => {
 
 if (!spot) return <main>Loading...</main>
 return (
-        <main> 
+        <main className={styles.container}> 
             <header>
                 <p>{spot.category.toUpperCase()}</p>
                 <h1>{spot.spotName.toUpperCase()}</h1>

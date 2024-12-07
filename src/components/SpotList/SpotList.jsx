@@ -1,12 +1,14 @@
 // src/components/SpotList/SpotList.jsx
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import styles from './SpotList.module.css'
+
 
 const SpotList = (props) => {
   //console.log('props have been passed ✅', props.spots)
 
   return (
-    <main>
+    <main className={styles.container}>
       {props.spots.map((spot) => (
         <Link key={spot._id} to={`/spots/${spot._id}`}>
           <article>

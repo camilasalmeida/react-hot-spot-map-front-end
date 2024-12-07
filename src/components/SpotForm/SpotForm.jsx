@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from 'react-router-dom';
 import * as spotService from '../../services/spotService'
+import styles from './SpotForm.module.css'
+
 
 const SpotForm = (props) => {
   const [formData, setFormData] = useState({
@@ -38,7 +40,7 @@ const SpotForm = (props) => {
 }
 
   return (
-    <main>
+    <main className ={styles.container}>
       <form onSubmit={handleSubmit}>
         <h1>{spotId ? 'Edit Spot' : 'New Spot'}</h1>
         <label htmlFor="spotName">Spot Name <span style={{ color: 'red' }}>*</span></label>

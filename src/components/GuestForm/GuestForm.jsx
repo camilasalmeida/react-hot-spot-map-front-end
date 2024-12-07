@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import * as spotService from '../../services/spotService'
 import { useNavigate } from "react-router-dom"
 import { useParams } from 'react-router-dom';
+import styles from './GuestForm.module.css'
+
 
 const GuestForm = (props) => {
 
@@ -63,6 +65,7 @@ const { spotId, guestId } = useParams();
 //-------------------------------------------------------------------------------\\
   if (spotId && guestId)
     return (
+  <main className={styles.container}> 
       <form onSubmit={handleSubmit}>
         <h2>Edit Guest</h2>
         <label htmlFor="name">
@@ -145,6 +148,7 @@ const { spotId, guestId } = useParams();
 
         <button type="submit">SUBMIT UPDATE</button>
       </form>
+      </main>
     )
 //-------------------------------------------------------------------------------------\\
   return (
