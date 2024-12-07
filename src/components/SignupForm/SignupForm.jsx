@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import * as authService from '../../services/authService'
 import styles from './SignupForm.module.css';
 
-
 const SignupForm = (props) => {
   const navigate = useNavigate();
   const [message, setMessage] = useState(['']);
@@ -31,10 +30,10 @@ const SignupForm = (props) => {
         return
       }
     try{
-        const newUserResponse = await authService.signup(formData)                    // The signup function from authService.js is called. It sends the formData { username, email, password, passwordConf } to our backend API. The response from the backend API is assigned to the newUserResponse variable. This response typically contains the created user details and possibly a token.
-        props.setUser(newUserResponse.user)                                           // That will modify the state in the App component. By calling props.setUser, the user information is stored in the parent component’s state. This typically updates the app’s global user state to reflect that a user is now signed in.
+        const newUserResponse = await authService.signup(formData)                  
+        props.setUser(newUserResponse.user)                                           
         navigate('/')
-        console.log('Form submitted successfully:', formData)                       // This line will print the form data to the console
+        console.log('Form submitted successfully:', formData)                       
     } catch (error) {
         updateMessage(error.message)
     }

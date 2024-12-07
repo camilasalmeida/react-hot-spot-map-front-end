@@ -1,7 +1,7 @@
 // src/components/Landing.jsx
 import styles from './Landing.module.css';
 import { Link } from 'react-router-dom';
-import Footer from "../Footer/Footer";
+import Footer from '../Footer/Footer';
 
 const Landing = () => {
     return (
@@ -12,7 +12,6 @@ const Landing = () => {
                     <h1>The HotSpotMap</h1>
             </header>
             
-
                 {/* Section 2: Intro */}
             <section className={styles.about}> 
                         <h3>Sign up to unlock the door to exclusive spots and uncover your secret dashboard of hidden gems.🗝️ </h3>
@@ -21,7 +20,6 @@ const Landing = () => {
             <section className={styles.cta}>
                     <Link to="/signup" className={styles.joinNowButton}>JOIN NOW</Link>
             </section>
-
 
                 {/* Section 3: Testimonials */}
             <section className={styles.testimonial}>
@@ -47,9 +45,9 @@ const Landing = () => {
                 <section className={styles.cta}>
                     <Link to="/signup" className={styles.joinNowButton}>JOIN NOW</Link>
             </section>
-            
+            <Footer />
         </main>
-        <Footer />
+   
         </>
     )
 }
