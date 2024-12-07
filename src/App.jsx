@@ -14,6 +14,7 @@ import * as spotService from'../src/services/spotService'                       
 import SpotDetails from './components/SpotDetails/SpotDetails'
 import SpotForm from './components/SpotForm/SpotForm'
 import GuestForm from './components/GuestForm/GuestForm'
+import FooterAdding from './components/FooterAdding/FooterAdding'
 
 export const AuthedUserContext = createContext(null)
 
@@ -83,7 +84,7 @@ console.log('User in App.jsx:', user);
       <Route path="/signup" element={<SignupForm setUser={setUser} />} />
       <Route path="/signin" element={<SigninForm setUser={setUser} />} />
     </Routes>
-
+      <FooterAdding />
     </AuthedUserContext.Provider>
  
     </>

@@ -1,7 +1,7 @@
 // src/components/Landing.jsx
 import styles from './Landing.module.css';
 import { Link } from 'react-router-dom';
-import Footer from '../Footer/Footer';
+
 
 const Landing = () => {
     return (
@@ -45,7 +45,7 @@ const Landing = () => {
                 <section className={styles.cta}>
                     <Link to="/signup" className={styles.joinNowButton}>JOIN NOW</Link>
             </section>
-            <Footer />
+        
         </main>
    
         </>
