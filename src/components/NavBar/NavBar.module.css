@@ -8,8 +8,9 @@
     display: flex;
     position: fixed; 
     padding: 14px 21px;
+    padding-right: 8px;
     align-items: center;
-    background: rgba(3, 2, 17, 0.752);
+    background: #001025d9;
     border-bottom: 1px solid rgb(200, 200, 200);
     font-size: 10px;
   }
@@ -33,14 +34,14 @@
   }
   
   .container li {
-    margin-left: 18px;
+    margin-left: 20px;
     text-align: right;
-    
   }
   
   .container li a {
-     color: whitesmoke;
-     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     color: #ffffff;
+     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
   }
 
   @media only screen and (max-width: 414px) {
@@ -51,4 +52,23 @@
       font-size: 15px;
     }
   }
+
+  .joinButton {
+    display: inline-block;
+    padding: 4px 7px;
+    background-color: #bc002f;
+    color: #ffffff;
+    border: none; 
+    text-align: center;
+    text-decoration: none; 
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .joinButton:hover {
+    color:rgb(154, 16, 16);
+  }
+
   

@@ -85,7 +85,7 @@ console.log('User in App.jsx:', user);
     </Routes>
 
     </AuthedUserContext.Provider>
-    <h1>Hello World!🌍 </h1>
+ 
     </>
   )
 }

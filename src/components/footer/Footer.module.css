@@ -1,0 +1,24 @@
+
+.container {
+    width: 100%; 
+    position: fixed; 
+    bottom: 0; 
+    background-color: #e1e1e1;
+    color: black;
+    text-align: center; 
+    font-size: 12px;
+    padding: 10px 0; 
+    border-top: 1px solid rgb(220, 220, 220); 
+    z-index: 10; 
+  }
+  
+  .container:hover {
+    color: rgb(154, 16, 16); 
+  }
+  
+  @media only screen and (max-width: 540px) {
+    .container {
+      font-size: 10px; 
+      padding: 8px 0; 
+    }
+  }

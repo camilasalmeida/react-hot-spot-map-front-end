@@ -20,8 +20,7 @@ const NavBar = ({ user, handleSignout }) => {
                 <nav className={styles.container}>
                     <ul>
                         <li><Link to="/signin">Login</Link></li>
-                        <li><Link to="/signup">JOIN NOW</Link></li>
-                    
+                        <li><Link to="/signup" className={styles.joinButton}>JOIN</Link></li>
                     </ul>
                 </nav>
 
