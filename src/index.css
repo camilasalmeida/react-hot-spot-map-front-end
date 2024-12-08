@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 
+
 html, body {
   margin: 0;
   height: 100%;
+  width: 100%;
   overflow: hidden;
   background-color: #e1e1e1;
   -webkit-font-smoothing: antialiased;
@@ -24,16 +26,18 @@ html, body {
 
 #root {
   height: 100%;
+  width: 100%;
 }
 
 body {
-  overflow: auto;
-  padding-top: 80px;
+  overflow: hidden;
+  padding-top: 40px;
+ 
 }
 
-article img {
+/* article img {
   width: 80px;
-}
+} */
 
 h1, h3 { margin: 7px 0px 14px 0px; }
 
@@ -64,9 +68,10 @@ p {
 }
 
 a {
-  color: black;
+  /* color: black; */
   font-weight: 600;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
 a:hover {
@@ -74,24 +79,12 @@ a:hover {
   color: rgb(154, 16, 16);
 }
 
-form {
-  width: 100%;
-  display: flex;
-  max-width: 500px;
-  border-radius: 5px;
-  flex-direction: column;
-  background-color: white;
-  padding: 21px 21px 28px 21px;
-  border: 1px solid rgb(220, 220, 220);
-  -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-  -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-}
-
 button {
-  font-style: bold;
+  font-weight: bold;
   background-color: #bc002f;
   color:#ffffff;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -99,6 +92,7 @@ button:hover {
   background-color: #cda780;
   
 }
+
 
 
 

@@ -39,8 +39,16 @@ const SigninForm = (props) => {
 
   return (
     <main className={styles.container}>
-      <h1>Log In</h1>
-      <p>{message}</p>
+      <div className={styles.header}>  
+      <h1 style={{ paddingBottom: '5px'}}>Welcome to HotSotMap!</h1>
+      <p styles={{ opacity:1, marginTop: '10px'}}>Enter your username and email to continue exploring</p>
+      </div>
+      {message && (
+        <div className={styles.message}>
+          <p>{message}</p>
+        </div>
+      )}
+     
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
@@ -85,6 +93,16 @@ const SigninForm = (props) => {
           </Link>
         </div>
       </form>
+
+
+      <p style={{ color: 'white', textAlign: 'center', marginTop: '15px', marginBottom: '30px' }}>
+  By continuing you agree to HotSpotMap's Terms and Privacy Policy.
+</p>
+
+
+<p style={{ color: 'white', textAlign: 'center', opacity: 1 }}>
+  Don’t have an account? <Link to="/signup" style={{ color: 'white', textDecoration: 'underline' }}>Sign up</Link>
+</p>
     </main>
   )
 }

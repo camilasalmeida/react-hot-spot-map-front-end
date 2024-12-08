@@ -2,12 +2,17 @@
 
 const BASE_URL = `${import.meta.env.VITE_EXPRESS_BACKEND_URL}/spots`
 
-const index = async () => {
+const index = async (userId) => {
     try {
         const res = await fetch(BASE_URL, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },                   // The headers property is an object containing any headers that need to be sent along with the request. In this case, we are including an 'Authorization' header with a bearer token. This token is decoded by the verifyToken middleware function on our server, allowing us to indentify the logged in user, and ensuring that only a logged in user can access this functionality.
         })
-        return res.json()
+        const data = await res.json() 
+        //filter data by the user who is current logged in _id
+        const filterData = data.filter((datum) => datum._id === userId )
+        
+        console.log({ userId, data, filterData })
+        return filterData
     } catch (error) {
         console.log(error)
     }

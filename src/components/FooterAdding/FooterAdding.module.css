@@ -12,10 +12,6 @@
     z-index: 10; 
   }
   
-  .container:hover {
-    color: rgb(154, 16, 16); 
-  }
-  
   @media only screen and (max-width: 540px) {
     .container {
       font-size: 10px; 
