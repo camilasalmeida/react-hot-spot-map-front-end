@@ -67,11 +67,11 @@ form {
     border: 1px solid rgb(220, 220, 220);
 }
 
-/* .container input:focus {
+.container input:focus {
   outline: none;
-  border: 1px solid #00a0df;
+  border: 1px solid #8b999e;
   box-shadow: 0px 0px 5px rgba(0, 160, 223, 0.5);
-} */
+}
 
 .container div {
   width: 100%;

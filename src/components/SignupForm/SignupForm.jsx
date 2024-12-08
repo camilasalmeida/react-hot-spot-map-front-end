@@ -47,9 +47,14 @@ const SignupForm = (props) => {
 
   return (
     <main className={styles.container}>
-      <h1>Sign Up</h1>
-      <p>{message}</p>
-      <form onSubmit={handleSubmit}>
+       <div className={styles.header}>  
+      <h1 style={{ paddingBottom: '5px'}}>Welcome to HotSotMap!</h1>
+      <p styles={{ opacity:1, marginTop: '2px'}}>Enter your username and email to continue exploring</p>
+      </div>
+      <form style={{
+        paddingBottom: '60px',
+
+  }} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
           <input
@@ -94,6 +99,7 @@ const SignupForm = (props) => {
             onChange={handleChange}
           />
         </div>
+        
         <div>
           <button disabled={isFormInvalid()}>Sign Up</button>
           <Link to="/">
@@ -101,6 +107,9 @@ const SignupForm = (props) => {
           </Link>
         </div>
       </form>
+      <p style={{ color: 'white', textAlign: 'center', marginTop: '15px', marginBottom: '30px' }}>
+            By continuing you agree to HotSpotMap's Terms and Privacy Policy.
+      </p>
     </main>
   )
 }
