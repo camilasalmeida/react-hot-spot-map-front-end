@@ -49,7 +49,7 @@ const SigninForm = (props) => {
         </div>
       )}
      
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form className={styles.signinForm} autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
           <input

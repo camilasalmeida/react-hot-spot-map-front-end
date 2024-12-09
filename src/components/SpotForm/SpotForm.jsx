@@ -5,7 +5,6 @@ import { useParams } from 'react-router-dom';
 import * as spotService from '../../services/spotService'
 import styles from './SpotForm.module.css'
 
-
 const SpotForm = (props) => {
   const [formData, setFormData] = useState({
     spotName: '',
@@ -41,8 +40,9 @@ const SpotForm = (props) => {
 
   return (
     <main className ={styles.container}>
-      <form onSubmit={handleSubmit}>
-        <h1>{spotId ? 'Edit Spot' : 'New Spot'}</h1>
+      
+      <form className={styles.newSpot} onSubmit={handleSubmit}>
+      <h1 style={{ color: '#bc002f', textAlign: 'center' }}> {spotId ? 'Edit Spot' : 'New Spot'}</h1>
         <label htmlFor="spotName">Spot Name <span style={{ color: 'red' }}>*</span></label>
         <input
           required
@@ -146,7 +146,7 @@ const SpotForm = (props) => {
           <option value="None">None</option>
         </select>
 
-        <button type="submit">SUBMIT</button>
+        <button type="submit">Add</button>
       </form>
     </main>
   )

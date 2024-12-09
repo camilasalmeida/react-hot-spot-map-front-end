@@ -43,8 +43,8 @@
 } */
 
 /* //--------------------form--------------------------------------------\\ */
-form {
-  width: 540px;
+.signinForm {
+  width: 500px;
   height: 410px;
   display: flex;
   flex-direction: column;
