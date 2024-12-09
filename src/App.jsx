@@ -29,7 +29,7 @@ useEffect(() => {                                                               
   const fetchAllSpots = async () => {
     const spotsData = await spotService.index(user._id)
     setSpots(spotsData)                                                         // SetSpots with the spotsData or the index containing a list of all Spots.
-    //console.log('spotsData is: ', spotsData)
+    console.log('spotsData is: ', spotsData)
   }
   if (user) fetchAllSpots()
 }, [user]);

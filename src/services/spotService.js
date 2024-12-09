@@ -3,16 +3,18 @@
 const BASE_URL = `${import.meta.env.VITE_EXPRESS_BACKEND_URL}/spots`
 
 const index = async (userId) => {
+    console.log('hello from spots index')
     try {
         const res = await fetch(BASE_URL, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },                   // The headers property is an object containing any headers that need to be sent along with the request. In this case, we are including an 'Authorization' header with a bearer token. This token is decoded by the verifyToken middleware function on our server, allowing us to indentify the logged in user, and ensuring that only a logged in user can access this functionality.
         })
         const data = await res.json() 
         //filter data by the user who is current logged in _id
-        const filterData = data.filter((datum) => datum._id === userId )
+        //const filterData = data.filter((datum) => datum.author._id === userId )
         
-        console.log({ userId, data, filterData })
-        return filterData
+        //console.log({ userId, data, filterData })
+        console.log({ userId, data })
+        return data
     } catch (error) {
         console.log(error)
     }
@@ -30,6 +32,7 @@ const show = async (spotId) => {
 }
 
 const create = async (spotFormData) => {
+    console.log("in create spot")
     try {
         const res = await fetch(BASE_URL, {
             method: 'POST',

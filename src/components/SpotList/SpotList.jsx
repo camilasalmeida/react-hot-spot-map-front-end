@@ -5,7 +5,7 @@ import styles from './SpotList.module.css'
 
 
 const SpotList = (props) => {
-  //console.log('props have been passed ✅', props.spots)
+  console.log('props have been passed ✅', props.spots)
 
   return (
     <main className={styles.container}>
