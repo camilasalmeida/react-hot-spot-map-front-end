@@ -40,7 +40,7 @@ const SigninForm = (props) => {
   return (
     <main className={styles.container}>
       <div className={styles.header}>  
-      <h1 style={{ paddingBottom: '5px'}}>Welcome to HotSotMap!</h1>
+      <h1 style={{ paddingBottom: '10px'}}>Welcome to HotSpotMap!</h1>
       <p styles={{ opacity:1, marginTop: '10px'}}>Enter your username and email to continue exploring</p>
       </div>
       {message && (
@@ -94,15 +94,17 @@ const SigninForm = (props) => {
         </div>
       </form>
 
+      <p style={{ color: 'white', textAlign: 'center', marginTop: '30px', marginBottom: '50px' }}>
+        By continuing you agree to HotSpotMap's Terms and Privacy Policy.
+      </p>
 
-      <p style={{ color: 'white', textAlign: 'center', marginTop: '15px', marginBottom: '30px' }}>
-  By continuing you agree to HotSpotMap's Terms and Privacy Policy.
-</p>
+      <p style={{ color: 'white', textAlign: 'center', opacity: 1 }}>
+        Don’t have an account? <Link to="/signup" style={{ color: 'white', textDecoration: 'underline'}}>Sign up</Link>
+      </p>
 
-
-<p style={{ color: 'white', textAlign: 'center', opacity: 1 }}>
-  Don’t have an account? <Link to="/signup" style={{ color: 'white', textDecoration: 'underline' }}>Sign up</Link>
-</p>
+      <footer className={styles.footer}>
+        <p>&copy; 2024 HotSpotMap. All rights reserved.</p>
+      </footer>
     </main>
   )
 }

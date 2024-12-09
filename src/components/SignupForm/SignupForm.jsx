@@ -47,14 +47,16 @@ const SignupForm = (props) => {
 
   return (
     <main className={styles.container}>
-       <div className={styles.header}>  
-      <h1 style={{ paddingBottom: '5px'}}>Welcome to HotSotMap!</h1>
-      <p styles={{ opacity:1, marginTop: '2px'}}>Enter your username and email to continue exploring</p>
+        <div className={styles.header}>  
+      <h1 style={{ paddingBottom: '5px'}}>Welcome to HotSpotMap!</h1>
+      <p styles={{ opacity:1, marginTop: '10px'}}>Enter your username and email to continue exploring</p>
       </div>
-      <form style={{
-        paddingBottom: '60px',
-
-  }} onSubmit={handleSubmit}>
+      {message && (
+        <div className={styles.message}>
+          <p>{message}</p>
+        </div>
+      )}
+      <form className={styles.signupForm} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
           <input
@@ -107,9 +109,18 @@ const SignupForm = (props) => {
           </Link>
         </div>
       </form>
-      <p style={{ color: 'white', textAlign: 'center', marginTop: '15px', marginBottom: '30px' }}>
-            By continuing you agree to HotSpotMap's Terms and Privacy Policy.
+     
+      <p style={{ color: 'white', textAlign: 'center', marginTop: '30px', marginBottom: '50px' }}>
+        By continuing you agree to HotSpotMap's Terms and Privacy Policy.
       </p>
+
+      <p style={{ color: 'white', opacity: 1, textAlign: 'center', marginTop: '7px' }}>
+          Already have an account? <Link to="/signin" style={{ color: 'white', textDecoration: 'underline' }}>Log in</Link>
+      </p>
+
+      <footer className={styles.footer}>
+        <p>&copy; 2024 HotSpotMap. All rights reserved.</p>
+      </footer>
     </main>
   )
 }
