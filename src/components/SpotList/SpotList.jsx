@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import styles from './SpotList.module.css';
+import logo from '../../assets/images/logo.png'
 
 const SpotList = (props) => {
 
   return (
     <main className={styles.container}>
-      <h1>HOT SPOTS</h1>
+      <section className={styles.header}>
+      <h1>HotSpots </h1>
+      </section>
 
       {props.spots.length === 0 ? (
         <p>There are no spots listed yet. Personalize your app by adding your favorite HotSpots now!</p>
@@ -17,8 +20,7 @@ const SpotList = (props) => {
                 <h2><strong>{spot.spotName.toUpperCase()}</strong></h2>
                 <p>
                   {spot.author.username} listed on{" "}
-                  {new Date(spot.createdAt).toLocaleDateString()} at{" "}
-                  {new Date(spot.createdAt).toLocaleTimeString()}
+                  {new Date(spot.createdAt).toLocaleDateString()} 
                 </p>
               </header>
             </article>
