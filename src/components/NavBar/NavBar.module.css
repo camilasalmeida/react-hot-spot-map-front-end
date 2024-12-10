@@ -10,7 +10,7 @@
     padding: 14px 21px;
     padding-right: 8px;
     align-items: center;
-    background: #001025d9;
+    background: #595a5d;
     border-bottom: 1px solid  #001025d9;
     font-size: 9px;
   }
@@ -78,3 +78,8 @@
         height: auto; 
     }
 }
+@media only screen and (max-width: 414px) {
+  .container {
+    background-color: rgb(154, 16, 16);
+    color: #ffffff; 
+  }}

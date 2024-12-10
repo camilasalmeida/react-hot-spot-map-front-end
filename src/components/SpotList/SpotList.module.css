@@ -6,6 +6,10 @@
   text-decoration: none;
   gap: 18px;
 }
+body {
+  margin-top: 65px;
+  padding-top: 25px;
+}
 
 .header h1 {
   text-align: center;

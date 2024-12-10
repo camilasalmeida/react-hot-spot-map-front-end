@@ -18,7 +18,7 @@ const NavBar = ({ user, handleSignout }) => {
                 </nav>
             ) : ( 
                 <nav className={styles.container}>
-                    <img src={noBuffer} alt="fire"/>
+                     <Link to='/'><img src={noBuffer} alt="fire"/></Link>
                     <ul>
                         <li><Link to="/signin">Login</Link></li>
                         <li><Link to="/signup" className={styles.joinButton}>JOIN</Link></li>

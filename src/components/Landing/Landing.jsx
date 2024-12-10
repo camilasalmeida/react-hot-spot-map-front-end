@@ -8,15 +8,17 @@ const Landing = () => {
         <>
         <main className={styles.container}>
                 {/* Section 1: Header */}
-            <header className={styles.header}>
+            <section className={styles.header}>
                     <h1>The HotSpotMap</h1>
-            </header>
+            </section>
             
                 {/* Section 2: Intro */}
             <section className={styles.about}> 
                         <h3>Sign up to unlock the door to exclusive spots and uncover your secret dashboard of hidden gems.🗝️ </h3>
                         <p>HotSpotMap makes it simple to plan your next gathering. Add your favorite locations, share important details, and invite your guests effortlessly. As soon as you send an invitation, your guests will receive all the event details via email, making it easy to create lasting memories together.</p>
             </section>
+
+
             <section className={styles.cta}>
                     <Link to="/signup" className={styles.joinNowButton}>JOIN NOW</Link>
             </section>
