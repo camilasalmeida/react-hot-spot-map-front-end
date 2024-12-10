@@ -21,7 +21,9 @@
     flex-direction: center;
     justify-content: center;
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 50px;
+    text-align: center;
+    
   }
   
   @media only screen and (max-width: 540px) {

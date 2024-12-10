@@ -50,7 +50,7 @@ const SigninForm = (props) => {
       )}
      
       <form className={styles.signinForm} autoComplete="off" onSubmit={handleSubmit}>
-        <div>
+        {/* <div>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -61,7 +61,7 @@ const SigninForm = (props) => {
             onChange={handleChange}
             placeholder="Enter your username"
           />
-        </div>
+        </div> */}
         <div>
           <label htmlFor="email">Email:</label>
           <input

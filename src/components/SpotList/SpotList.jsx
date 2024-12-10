@@ -5,6 +5,7 @@ const SpotList = (props) => {
 
   return (
     <main className={styles.container}>
+      <h1>HOT SPOTS</h1>
 
       {props.spots.length === 0 ? (
         <p>There are no spots listed yet. Personalize your app by adding your favorite HotSpots now!</p>

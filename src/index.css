@@ -31,13 +31,9 @@ html, body {
 
 body {
   overflow-y: scroll;
-  padding-top: 40px;
+  padding-top: 65px;
  
 }
-
-/* article img {
-  width: 80px;
-} */
 
 h1, h3 { margin: 7px 0px 14px 0px; }
 
@@ -62,7 +58,7 @@ p {
   margin: 0;
   opacity: .4;
   width: 100%;
-  font-size: 16px;
+  font-size: 18px;
   text-align: justify;
   line-height: 28px;
 }

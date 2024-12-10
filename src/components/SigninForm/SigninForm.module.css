@@ -24,20 +24,19 @@
 
 .message p {
   color: white;
-
   text-align: center;
   opacity: 1;
   margin-bottom: 20px;
 }
 
+
 .signinForm {
   width: 450px;
-  height: 435px;
+  height: 360px;
   display: flex;
   flex-direction: column;
   background-color: white;
   padding: 21px 21px 28px 21px;
-  
   border-radius: 5px;
   border: 1px solid rgb(220, 220, 220);
   -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
@@ -69,7 +68,6 @@
   font-size: 17px; 
   color: #001025;
   margin: 7px 0px 7px 0px;
-  
 }
 
 .container label::after {
@@ -85,9 +83,6 @@
   flex-direction: column;
 }
 
-
-/* //----------------------------------------------------------------\\ */
-
 .message {
   color: white;
   opacity: 1;
@@ -96,15 +91,12 @@
 
 
 .footer {
-  margin-top: 30px; /* Add space above */
-  padding: 20px 0; /* Space within the footer */
-  background-color: #001025; /* Match the main background color */
-  color: white;
+  margin-top: 30px; 
+  padding: 20px 0; 
+  background-color: #001025; 
   text-align: center;
   font-size: 14px;
 }
-
-
 
 
 @media only screen and (max-width: 600px) {
@@ -113,67 +105,3 @@
     padding: 20px;
   }
 }
-
-/* 
- .container button {
-  color: white;
-  font-weight: 600;
-  background: #00a0df;
-  margin: 10px 0px 0px 0px;
-}  */
-
-
-  /* border-radius: 5px;
-  flex-direction: column;
-  background-color: white;
-  padding: 21px 21px 28px 21px;
-  border: 1px solid rgb(220, 220, 220);
-  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-  -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-  -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-}
-.container input {
-  margin: 7px 0px 14px 0px;
-}
-
-.container input,
-button {
-  width: 100%;
-  padding: 14px;
-  font-size: 14px;
-  border-radius: 5px;
-  border: 1px solid rgb(220, 220, 220);
-}
-
-.container div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.container label {
-  font-weight: 600;
-  margin: 7px 0px 14px 0px;
-}
-
-.container button {
-  color: white;
-  font-weight: 600;
-  background: #00a0df;
-  margin: 21px 0px 0px 0px;
-}
-
-.container a {
-  border: none;
-  font-size: 14px;
-  background: none;
-  font-weight: 500;
-  margin-top: 14px;
-  text-align: center;
-  color: rgb(200, 200, 200);
-}
-
-input:focus {
-  outline: none;
-  border: 1px solid #00a0df;
-} */
