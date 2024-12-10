@@ -56,7 +56,7 @@ const handleResponse = async (guestId, status) => {
 
 if (!spot) return <main>Loading...</main>
 return (
-        <main className={styles.container}> 
+        <main className={styles.con}> 
             <header>
                 <p>{spot.category.toUpperCase()}</p>
                 <h1>{spot.spotName.toUpperCase()}</h1>
@@ -68,8 +68,7 @@ return (
                 <p><strong>Address:</strong> {spot.address}</p>
                 <p><strong>Category:</strong> {spot.category}</p>
                 <p><strong>Dresscode:</strong> {spot.dresscode}</p>
-                {/* <h3>Author: {spot.author.username}</h3>
-                <h3>Guests: {spot.guests._guestId}</h3> */}
+
            
            {spot.author._id === user._id && (
             <>
@@ -83,17 +82,17 @@ return (
                 <h1>Guest Form</h1>
                 <GuestForm handleAddGuest={handleAddGuest}/>
 
-                <h1>Guests</h1>
+                <h1>GUEST LIST:</h1>
                 {!spot.guests?.length && <p>There are no guests.</p>}
                 {spot.guests.map((guest) => (
                     <article key={guest._id}> 
                         <header>
                             <p>
-                            <strong>{guest.author.username.toUpperCase()}</strong> posted on {' '}            
+                            <strong>{guest.author.username}</strong> posted on {' '}            
                             {new Date(spot.createdAt).toLocaleDateString()} at {' '}
                             {new Date(spot.createdAt).toLocaleTimeString()}
                             </p>
-                            <p><strong>{guest.name}</strong> ({guest.email})</p>
+                            <p><strong>{guest.name.toUpperCase()}</strong> ({guest.email})</p>
                             <p><strong>Hosted by:</strong>{" "}{guest.author.username || "Unknown"}</p>
                             <p><strong>Status:</strong> {guest.status}</p>
                             <p><strong>Date:</strong>{" "}{guest.date ? new Date(guest.date).toLocaleDateString() : "N/A"}{" "}at {guest.time || "N/A"}</p>
@@ -105,7 +104,7 @@ return (
                             <>
 
                             <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
-                            <button onClick={()=> handleDeleteGuest(guest._id)}>delete Guest</button>
+                            <button onClick={()=> handleDeleteGuest(guest._id)}>Delete Guest</button>
                             </>
                         )}
                         
