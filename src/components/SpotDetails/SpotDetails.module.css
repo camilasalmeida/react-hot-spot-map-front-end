@@ -6,24 +6,57 @@
     overflow: scroll;
     align-items: center;
     flex-direction: column;
+    background-color: #fafafa;
   }
 
 
 .headerSection {
     /* display: flex; */
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     padding: 60px;
-    
+
 }
   
 
 
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 20px;
+    height: 390px;
+    border: 1px solid var(--border);
+  background-color: var(--card-background);
+ 
+  -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+  -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+  box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+}
+
+
+.button-link:hover {
+    background-color: #cda780;
+    cursor: pointer;
+  }
+
+
+.container header article p {
+    padding: 2px;
+}
 
 
 
 
+
+/* .button-link {
+    display: flex;
+    background-color: aqua;
+    border-radius: '5px';
+
+
+} */
 
 
   /* .container > section {

@@ -45,29 +45,45 @@ const handleResponse = async (guestId, status) => {
 
 if (!spot) return <main>Loading...</main>
 return (
+    
         <main className={styles.container}> 
             <header className={styles.headerSection}>
-                                <h1>{spot.spotName.toUpperCase()}</h1>
-                                <p> <strong> 
+                <article className={styles.card}>
+                            <h1>{spot.spotName.toUpperCase()}</h1>
+                            <p> <strong> 
                                     {spot.author?.username || 'Unknown'}</strong> created on {' '}
                                     {new Date(spot.createdAt).toLocaleDateString()} at {' '}
                                     {new Date(spot.createdAt).toLocaleTimeString()}
                                 </p>
-                                <p><strong>Address:</strong> {spot.address}</p>
-                                <p><strong>Category:</strong> {spot.category}</p>
-                                <p><strong>Dresscode:</strong> {spot.dresscode}</p>
-                        {spot.author._id === user._id && (
-
-
-
-
-
-            <>
-              <Link to={`/spots/${spotId}/edit`}>Edit</Link>
-              <button onClick={() => props.handleDeleteSpot(spotId)}>Delete</button>
-            </>
-          )}
+                            <p><strong>Address:</strong> {spot.address}</p>
+                            <p><strong>Category:</strong> {spot.category}</p>
+                            <p><strong>Dresscode:</strong> {spot.dresscode}</p>
+                            {spot.author._id === user._id && (
+                                <> 
+                        <div className={styles.buttonContainer}>             
+                            <Link to={`/spots/${spotId}/edit`} 
+                            style={{
+                                display: 'inline-block',
+                                padding: '10px 20px',
+                                color: '#fff',
+                                backgroundColor: '#007bff',
+                                textDecoration: 'none',
+                                borderRadius: '5px',
+                                border: 'none',
+                                cursor: 'pointer',
+                                fontSize: '16px',
+                                textAlign: 'center',   
+                            }}
+                            >Edit</Link>
+                            <button onClick={() => props.handleDeleteSpot(spotId)}>Delete</button>
+                        </div>      
+                                </>     
+                    )}
+                </article>
             </header>
+
+
+
 
 
 
