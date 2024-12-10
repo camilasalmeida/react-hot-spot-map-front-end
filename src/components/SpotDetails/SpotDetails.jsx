@@ -45,7 +45,6 @@ const handleResponse = async (guestId, status) => {
 
 if (!spot) return <main>Loading...</main>
 return (
-    
         <main className={styles.container}> 
             <header className={styles.headerSection}>
                 <article className={styles.card}>
@@ -59,7 +58,7 @@ return (
                             <p><strong>Category:</strong> {spot.category}</p>
                             <p><strong>Dresscode:</strong> {spot.dresscode}</p>
                             {spot.author._id === user._id && (
-                                <> 
+                            <> 
                         <div className={styles.buttonContainer}>             
                             <Link to={`/spots/${spotId}/edit`} 
                             style={{
@@ -77,55 +76,39 @@ return (
                             >Edit</Link>
                             <button onClick={() => props.handleDeleteSpot(spotId)}>Delete</button>
                         </div>      
-                                </>     
+                      </>     
                     )}
                 </article>
             </header>
-
-
-
-
-
-
-
-
-
-
-            
-            <section>
-                <h1>Guest Form</h1>
+            <section className={styles.guestForm}>
+                <h2>Guest Form</h2>
                 <GuestForm handleAddGuest={handleAddGuest}/>
-
+                </section>
+            <header className={styles.guestList}> 
                 <h1>GUEST LIST:</h1>
                 {!spot.guests?.length && <p>There are no guests.</p>}
                 {spot.guests.map((guest) => (
-                    <article key={guest._id}> 
-                        <header>
-                            <p>
-                            <strong>{guest.author.username}</strong> posted on {' '}            
-                            {new Date(spot.createdAt).toLocaleDateString()} at {' '}
-                            {new Date(spot.createdAt).toLocaleTimeString()}
-                            </p>
-                            <p><strong>{guest.name.toUpperCase()}</strong> ({guest.email})</p>
-                            <p><strong>Hosted by:</strong>{" "}{guest.author.username || "Unknown"}</p>
-                            <p><strong>Status:</strong> {guest.status}</p>
-                            <p><strong>Date:</strong>{" "}{guest.date ? new Date(guest.date).toLocaleDateString() : "N/A"}{" "}at {guest.time || "N/A"}</p>
-                            <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
-                            <p><strong>Image:</strong>ADD IMAGE</p>
-                            
-
-                           {guest.author._id === user._id && (
-                            <>
-
-                            <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
-                            <button onClick={()=> handleDeleteGuest(guest._id)}>Delete Guest</button>
-                            </>
-                        )}
-                        
-                        </header>
+                   <article key={guest._id} className={styles.guestArticle}>
+                                <p>
+                                <strong>{guest.author.username}</strong> posted on {' '}            
+                                {new Date(spot.createdAt).toLocaleDateString()} at {' '}
+                                {new Date(spot.createdAt).toLocaleTimeString()}
+                                </p>
+                                <p><strong>{guest.name.toUpperCase()}</strong> ({guest.email})</p>
+                                <p><strong>Hosted by:</strong>{" "}{guest.author.username || "Unknown"}</p>
+                                <p><strong>Status:</strong> {guest.status}</p>
+                                <p><strong>Date:</strong>{" "}{guest.date ? new Date(guest.date).toLocaleDateString() : "N/A"}{" "}at {guest.time || "N/A"}</p>
+                                <p><strong>Message:</strong> {guest.message || "No message provided"}</p>
+                                <p><strong>Image:</strong>ADD IMAGE</p>
+                                {guest.author._id === user._id && (
+                                <>
+                                <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
+                                <button onClick={()=> handleDeleteGuest(guest._id)}>Delete Guest</button>
+                                </> 
+                              ) }
                     </article>
                 ))}
-            </section>
+         </header>
         </main>
     )
 }

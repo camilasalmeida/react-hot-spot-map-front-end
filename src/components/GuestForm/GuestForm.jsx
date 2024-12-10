@@ -1,5 +1,3 @@
-// src/components/GuestForm/GuestForm.jsx
-
 import { useState, useEffect } from "react"
 import * as spotService from '../../services/spotService'
 import { useNavigate } from "react-router-dom"
@@ -145,7 +143,7 @@ const { spotId, guestId } = useParams();
     )
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.guestFormContainer} onSubmit={handleSubmit}>
       <label htmlFor="name">
         Name <span style={{ color: "red" }}>*</span>
       </label>
@@ -184,7 +182,7 @@ const { spotId, guestId } = useParams();
 
       <label htmlFor="time">Time<span style={{ color: "red" }}>*</span></label>
       <input
-        required
+        
         type="time"
         name="time"
         id="time"

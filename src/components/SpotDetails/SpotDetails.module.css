@@ -24,17 +24,18 @@
 .card {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 10px 20px;
-    height: 390px;
+    width: 440px;
+    padding: 35px 20px;
+    height: 420px;
     border: 1px solid var(--border);
   background-color: var(--card-background);
  
   -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+  margin-bottom: 1px;
+  margin-top: 40px;
 }
-
 
 .button-link:hover {
     background-color: #cda780;
@@ -43,152 +44,41 @@
 
 
 .container header article p {
-    padding: 2px;
+    padding: 5px;
 }
 
 
-
-
-
-/* .button-link {
+.guestForm {
+    /* background-color: darkviolet; */
     display: flex;
-    background-color: aqua;
-    border-radius: '5px';
-
-
-} */
-
-
-  /* .container > section {
-    width: 100%;
-    padding: 21px;
-    display: flex;
-    max-width: 700px;
     flex-direction: column;
-  }
-  
-  .container section article {
-    padding: 0;
-    width: 100%;
-    min-height: 140px;
-    margin: 4px 0px 14px;
-  }
-  
-  .container header div {
-    width: 100%;
+    /* background-color: brown; */
+    width: 440px;
+    height: 650px;
+    margin-bottom: 1px;
+}
+
+.guestList {
+    background-color: #bc002f;
     display: flex;
-    margin-top: 10px;
-    align-items: center;
-  }
-  
-  .container header {
-    display: flex;
-    margin-bottom: 21px;
+    width: 440px;
     flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .container h1 {
-    margin: 0 0 7px 0;
-  } */
-  
-  /* .container header > p {
-    margin: 0;
-    opacity: 1;
-    font-weight: 600;
-    color: var(--primary);
-    margin: 7px 0px 14px 0px;
-  } */
-/*   
-  .container header button,
-  .container header a {
-    width: 30px;
-    height: 30px;
-  
-    font-size: 14px;
-    font-weight: 500;
-  
-    background: none;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-  
+    padding: 40px 30px;
+    margin-top: 1px;
+    margin-bottom: 20px;
+
+}
+
+.guestArticle {
+    background-color: #ffffff;
     display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    padding: 5px;
-    margin: 0 0 0 7px;
-  }
-  
-  /* Button icon styling */
-  /* This styling will be used when we add in our reusable icon component */
-/*   
-  .container header button img,
-  .container header a img {
-    width: 24px;
-    height: 24px;
-    opacity: 0.25;
-  }
-  
-  .container header button:hover,
-  .container header a:hover {
-    background-color: var(--border);
-  }
-  
-  .container header button:hover img,
-  .container header a:hover img {
-    filter: invert(1);
-    opacity: 1;
-  }
-  
-  .container header button:active {
-    background-color: rgb(190, 190, 190);
-  }
-  
-  /* Comment form styling */
-/*   
-  .container form {
-    padding: 0;
-    display: flex;
-    border: none;
-    max-width: 100%;
-    box-shadow: none;
-    flex-direction: row;
-    align-items: center;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none; */
-  /* }
-  
-  .container form input,
-  .container form textarea {
-    width: 100%;
-    padding: 14px;
-    font-size: 14px;
-    resize: vertical;
-    border-radius: 5px;
-    margin: 14px 0px 14px 0px;
-    border: 1px solid var(--border);
-  }
-  
-  .container form textarea {
-    min-height: 50px;
-  }
-  
-  .container form button {
-    color: white;
-    font-weight: 600;
-    background: #00a0df;
-    width: 40px;
-    height: 40px;
-    margin: 0 0 0 14px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .container form button img {
-    width: 25px;
-    height: 25px;
-  } */
- 
+    flex-direction: column;
+    height: 400px;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 15px;
+
+
+
+}
+
