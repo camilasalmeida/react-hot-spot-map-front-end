@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styles from './SpotList.module.css';
+import { Link } from "react-router-dom"
+import styles from './SpotList.module.css'
 import logo from '../../assets/images/logo.png'
 
 const SpotList = (props) => {
@@ -28,7 +28,7 @@ const SpotList = (props) => {
         ))
       )}
     </main>
-  );
-};
+  )
+}
 
-export default SpotList;
+export default SpotList

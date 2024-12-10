@@ -3,25 +3,25 @@
     display: flex;
     flex-direction:column;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 50px; /* Adds space at the bottom */
+    padding-top: 60px;
+    padding-bottom: 50px; 
     background-color: #bc002f;
   }
 
 .container .newSpot {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 450px;
+    width: 420px;
+    height: 600px;
     background-color: white;
     padding: 21px 21px 28px 21px;
-    border-radius: 5px;
+    border-radius: 30px;
     border: 1px solid rgb(220, 220, 220);
     -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
     -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
     box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-    margin-top: 20px;
-    border-radius: 30px;
+    margin-top: 120px;
+    margin-bottom: 100px;
 }
 
 .container input {
@@ -38,48 +38,46 @@
       font-size: 17px;
       border-radius: 5px;
       border: 1px solid rgb(220, 220, 220);
-      margin-top: 10px;
+      margin-top: 15px;
   }
 
   .container input {
-    margin: 4px 0px 4px 0px; /* Spacing */
     width: 100%;
+    margin: 2px 0px 2px 0px; 
+    height: 50px;
     padding: 0px 15px 0px 15px;
-    font-size: 17px;
-    border-radius: 5px;
+    font-size: 22px;
     border: 1px solid rgb(220, 220, 220);
-    border-radius: 40px;
     letter-spacing: 1px;
+    border-radius: 30px;
   }
 
   .container input:focus,
 .container textarea:focus {
     outline: none;
-    border: 1px solid #bc002f; /* Red border */
-    box-shadow: 0px 0px 5px rgba(188, 0, 47, 0.5); /* Subtle shadow effect */
+    border: 1px solid #bc002f; 
+    box-shadow: 0px 0px 5px rgba(188, 0, 47, 0.5); 
 }
   
   .container textarea {
-    margin: 7px 0px 7px 0px;
-    background-color: #ffffff;
     width: 100%;
-    padding: 0px 5px 0px 20px; /* Adjust padding for better readability */
-    font-size: 17px;
-    border-radius: 5px;
+    margin: 2px 0px 2px 0px; 
+    background-color: #ffffff;
+    padding: 10px 15px;
+    font-size: 22px;
+    border-radius: 30px;
     border: 1px solid rgb(220, 220, 220);
-    border-radius: 40px;
     letter-spacing: 1px;
-    height: 100px; /* Add height for multiple lines */
+    height: 65px; 
     resize: vertical;
   }
 
   .container label {
-    font-size: 14px;
-     text-transform: uppercase;
+    font-size: 15x;
+    font-weight: 600;
     color: #001025;
     margin: 7px 0px 7px 0px;
   }
-  
   
   .container div {
     width: 100%;
@@ -87,28 +85,36 @@
     flex-direction: column;
   }
 
-
   .container select {
-    width: 100%; /* Ensure it takes full width */
-    padding: 8px; /* Add padding for better spacing */
-    font-size: 14px; /* Match the font size with inputs */
-    border-radius: 5px; /* Add rounded corners */
-    border: 1px solid rgb(220, 220, 220); /* Keep consistent with inputs */
-    background-color: #ffffff; /* Background color */
-    color: #001025; /* Text color */
-    margin: 4px 0px 4px 0px; /* Spacing */
-    height: 40px; /* Ensure height matches input fields */
-   
+    width: 100%; 
+    padding: 2px 15px; 
+    font-size: 17px; 
+    border-radius: 30px;
+    border: 1px solid rgb(220, 220, 220); 
+    background-color: #ffffff; 
+    color: #001025; 
+    margin: 4px 0px 4px 0px; 
+    height: 50px;
+}
+
+.container select:focus {
+  outline: none; 
+  border: 1px solid #bc002f; 
+  box-shadow: 0px 0px 5px rgba(188, 0, 47, 0.5); 
 }
 
 .container option {
-    font-size: 17px; /* Adjust the font size of the dropdown options */
-    padding: 10px; /* Add padding for better spacing */
-    color: #001025; /* Text color for options */
-    background-color: #ffffff; /* Background for dropdown */
-   
+  border-radius: 30px;
+  height: 50px;
+    font-size: 17px; 
+    padding: 10px;
+    color: #001025; 
+    background-color: #ffffff; 
 }
 
+.container button {
+  margin-top: 20px;
+}
 @media only screen and (max-width: 600px) {
     .container select {
       font-size: 14px; /* Adjust font size for smaller screens */
