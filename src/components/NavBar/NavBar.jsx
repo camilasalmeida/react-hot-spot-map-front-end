@@ -1,4 +1,3 @@
-// src/NavBar/NavBar.jsx
 import { Link } from 'react-router-dom';
 import styles from './NavBar.module.css';
 import noBuffer from '../../assets/images/noBuffer.png'
@@ -7,9 +6,8 @@ const NavBar = ({ user, handleSignout }) => {
 
     return (
         <>
-            { user ? (
+          { user ? (
                 <nav className={styles.container}>
-
                     <Link to='/'><img src={noBuffer} alt="fire"/></Link>
                     <ul>
                         <li><Link to="/">Home Page</Link></li>
@@ -26,12 +24,10 @@ const NavBar = ({ user, handleSignout }) => {
                         <li><Link to="/signup" className={styles.joinButton}>JOIN</Link></li>
                     </ul>
                 </nav>
-
             )}
         </>
     )
 }
-
 
   export default NavBar
 

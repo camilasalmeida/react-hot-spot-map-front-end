@@ -89,7 +89,6 @@
   margin-bottom: 20px;
 }
 
-
 .footer {
   margin-top: 30px; 
   padding: 20px 0; 
@@ -97,7 +96,6 @@
   text-align: center;
   font-size: 14px;
 }
-
 
 @media only screen and (max-width: 600px) {
   .container section {

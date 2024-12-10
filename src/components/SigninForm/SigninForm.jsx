@@ -1,11 +1,7 @@
-// SigninForm
-
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import * as authService from '../../services/authService'
 import styles from './SigninForm.module.css';
-
-
 
 const SigninForm = (props) => {
   const navigate = useNavigate();                                                  // Add this for navigation purposes.
