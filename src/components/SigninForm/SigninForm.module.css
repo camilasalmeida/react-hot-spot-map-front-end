@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   background-color: #001025;
-  padding-bottom: 50px; /* Adds space at the bottom */
+  padding-bottom: 50px; 
 }
 
 .header {
@@ -30,22 +30,9 @@
   margin-bottom: 20px;
 }
 
-
-
-/* .signin-link {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.signin-link:hover {
-  color: rgb(154, 16, 16);
-} */
-
-/* //--------------------form--------------------------------------------\\ */
 .signinForm {
-  width: 500px;
-  height: 410px;
+  width: 450px;
+  height: 435px;
   display: flex;
   flex-direction: column;
   background-color: white;

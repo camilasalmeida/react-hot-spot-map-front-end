@@ -4,8 +4,9 @@
     top: 0; 
     z-index: 1;
     width: 100%;
-    height: 40px;
+    height: 55px;
     display: flex;
+    z-index: 1;
     position: fixed; 
     padding: 14px 21px;
     padding-right: 8px;
@@ -25,6 +26,7 @@
   
   .container ul {
     margin: 0;
+    padding: 0;
     width: 100%;
     display: flex;
     list-style: none;
@@ -34,7 +36,8 @@
   }
   
   .container li {
-    margin-left: 20px;
+    margin-left: 25px;
+    margin-right: 5px;
     text-align: right;
   }
   
@@ -42,6 +45,7 @@
      color: #ffffff;
      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 19px;
   }
 
   @media only screen and (max-width: 414px) {
@@ -55,13 +59,13 @@
 
   .joinButton {
     display: inline-block;
-    padding: 4px 7px;
+    padding: 7px 11px;
     background-color: #bc002f;
     color: #ffffff;
     border: none; 
     text-align: center;
     text-decoration: none; 
-    font-size: 13px;
+    font-size: 19px;
     font-weight: bold;
     cursor: pointer; 
     transition: background-color 0.3s ease; 
