@@ -7,7 +7,7 @@ const Dashboard = ({ user }) => {
     return (
         <main className={styles.container}>
             <section className={styles.splash}>
-            <h1>Welcome, {user.username}!</h1>
+            <h1>Welcome, {user.username.toUpperCase()}!</h1>
             </section>
 
             <section className={styles.about}>
