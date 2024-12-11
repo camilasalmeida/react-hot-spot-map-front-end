@@ -2,37 +2,31 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: blue;
-    /* align-items: center; 
-    justify-content: flex-start; 
-    background-color: #f8f9fa;
-    padding: 20px; */
   }
   
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+}
 
+.splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:10px ;
+  text-align: center;
+}
 
-  .splash {
-    display: flex;
-    background-color: yellow;
-    /* flex-direction: center;
-    justify-content: center;
-    text-align: center;
-    padding: 50px 0px 30px 0px;
-  } */
-  }
-  
-  .about {
-    display: flex;
-    background-color: aqua;
-    /* flex-direction: center;
-    justify-content: center;
-    text-align: center;
-    padding: 15px 50px;
-    text-align: center; */
-    
-  }
-  
-  @media only screen and (max-width: 540px) {
-    .container {
-      padding: 8px 0;
-    }}
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 90px;
+  text-align: center;
+
+}

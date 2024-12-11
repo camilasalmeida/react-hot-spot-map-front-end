@@ -7,8 +7,7 @@ const SigninForm = (props) => {
   const navigate = useNavigate();                                                  // Add this for navigation purposes.
   const [message, setMessage] = useState(['']);
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
+    identifier: '', // Single field for email or username
     password: '',
   });
 
@@ -25,7 +24,6 @@ const SigninForm = (props) => {
     e.preventDefault();
     try {
       const user = await authService.signin(formData)                         // TODO build signin service function
-
       props.setUser(user);
       navigate('/');
     } catch (err) {
@@ -59,15 +57,15 @@ const SigninForm = (props) => {
           />
         </div> */}
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="identifier">Email or Username:</label>
           <input
-            type="email"
+            type="text" // Changed to text to allow both email and username
             autoComplete="off"
-            id="email"
-            value={formData.email}
-            name="email"
+            id="identifier"
+            value={formData.identifier}
+            name="identifier"
             onChange={handleChange}
-            placeholder="Enter your email"
+            placeholder="Enter your email or username"
           />
         </div>
         <div>

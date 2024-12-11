@@ -6,15 +6,17 @@ const Dashboard = ({ user }) => {
 
     return (
         <main className={styles.container}>
-            <section className={styles.splash}>
-            <h1>Welcome, {user.username.toUpperCase()}!</h1>
-            </section>
+            <section className={styles.box}>
+                    <section className={styles.splash}>
+                    <h1>Welcome, {user.username.toUpperCase()}!</h1>
+                    </section>
 
-            <section className={styles.about}>
-            <p>
-            This is the dashboard page where you, and only you, can see a list
-            of all of your secrets Spots. 🗝️
-            </p>
+                    <section className={styles.about}>
+                    <p>
+                    This is the dashboard page where you, and only you, can see a list
+                    of all of your secrets Spots. 🗝️
+                    </p>
+                    </section>
             </section>
 
         </main>
