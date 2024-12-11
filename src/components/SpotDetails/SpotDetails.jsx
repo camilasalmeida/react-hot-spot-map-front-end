@@ -63,6 +63,7 @@ return (
                             <Link to={`/spots/${spotId}/edit`} 
                             style={{
                                 display: 'inline-block',
+                                width: '100%',
                                 padding: '10px 20px',
                                 color: '#fff',
                                 backgroundColor: '#007bff',
@@ -85,6 +86,8 @@ return (
                 <GuestForm handleAddGuest={handleAddGuest}/>
                 </section>
             <header className={styles.guestList}> 
+
+
                 <h1>GUEST LIST:</h1>
                 {!spot.guests?.length && <p>There are no guests.</p>}
                 {spot.guests.map((guest) => (
@@ -102,7 +105,19 @@ return (
                                 <p><strong>Image:</strong>ADD IMAGE</p>
                                 {guest.author._id === user._id && (
                                 <>
-                                <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}>Edit</Link>
+                                <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}
+                                 style={{
+                                    display: 'inline-block',
+                                    padding: '10px 20px',
+                                    color: '#fff',
+                                    backgroundColor: '#007bff',
+                                    textDecoration: 'none',
+                                    borderRadius: '5px',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    fontSize: '16px',
+                                    textAlign: 'center',   
+                                }}>Edit</Link>
                                 <button onClick={()=> handleDeleteGuest(guest._id)}>Delete Guest</button>
                                 </> 
                               ) }
