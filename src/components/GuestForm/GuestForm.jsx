@@ -54,6 +54,18 @@ const { spotId, guestId } = useParams();
     });
   };
 
+  const handleFocus = (e) => {
+    e.target.style.outline = "none";
+    e.target.style.border = "1px solid #bc002f";
+    e.target.style.boxShadow = "0px 0px 5px rgba(188, 0, 47, 0.5)";
+  };
+  
+  const handleBlur = (e) => {
+    e.target.style.border = "1px solid black";      // Reset to default
+    e.target.style.boxShadow = "none";
+  };
+
+
   if (spotId && guestId)
     return (
   <main className={styles.EditContainer}> 
@@ -71,6 +83,8 @@ const { spotId, guestId } = useParams();
         placeholder="example: Blake Peak"
         value={formData.name || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: '8px' }}
       />
       <label htmlFor="email">
@@ -84,6 +98,8 @@ const { spotId, guestId } = useParams();
         placeholder="blakepeak@example.com"
         value={formData.email || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
       <label htmlFor="date">Date<span style={{ color: "red" }}>*</span></label>
@@ -94,6 +110,8 @@ const { spotId, guestId } = useParams();
         id="date"
         value={formData.date || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
       <label htmlFor="time">Time<span style={{ color: "red" }}>*</span></label>
@@ -103,6 +121,8 @@ const { spotId, guestId } = useParams();
         id="time"
         value={formData.time || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
       <label htmlFor="message">Message</label>
@@ -112,6 +132,8 @@ const { spotId, guestId } = useParams();
         value={formData.message || ""}
         onChange={handleChange}
         placeholder="Write your message or note here (optional)"
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px", height: "60px" }}
       />
       <label htmlFor="status">
@@ -123,6 +145,8 @@ const { spotId, guestId } = useParams();
         id="status"
         value={formData.status || "Pending"} 
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       >
         <option value="Pending">Pending</option>
@@ -136,6 +160,8 @@ const { spotId, guestId } = useParams();
         id="imageUpload"
         accept="image/*"
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
       <small>Accepted file types: JPG, PNG, etc.</small>
@@ -159,6 +185,8 @@ const { spotId, guestId } = useParams();
         placeholder="example: Blake Peak"
         value={formData.name || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: '8px' }}
       />
 
@@ -173,6 +201,8 @@ const { spotId, guestId } = useParams();
         placeholder="blakepeak@example.com"
         value={formData.email || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
 
@@ -184,6 +214,8 @@ const { spotId, guestId } = useParams();
         id="date"
         value={formData.date || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
 
@@ -195,6 +227,8 @@ const { spotId, guestId } = useParams();
         id="time"
         value={formData.time || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
 
@@ -204,6 +238,8 @@ const { spotId, guestId } = useParams();
         id="message"
         value={formData.message || ""}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         placeholder="Write your message or note here (optional)"
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px", height: "60px" }}
       />
@@ -217,6 +253,8 @@ const { spotId, guestId } = useParams();
         id="status"
         value={formData.status || "Pending"} 
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       >
         <option value="Pending">Pending</option>
@@ -231,6 +269,8 @@ const { spotId, guestId } = useParams();
         id="imageUpload"
         accept="image/*"
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
       <small>Accepted file types: JPG, PNG, etc.</small>
