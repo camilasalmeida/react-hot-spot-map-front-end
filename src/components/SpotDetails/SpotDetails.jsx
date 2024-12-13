@@ -49,8 +49,8 @@ return (
             <header className={styles.headerSection}>
                 <article className={styles.card}>
                             <h1>{spot.spotName.toUpperCase()}</h1>
-                            <p> <strong> 
-                                    {spot.author?.username || 'Unknown'}</strong> created on {' '}
+                            <p> <strong>
+                                    {spot.author?.username || 'Unknown'} </strong>created on {' '}
                                     {new Date(spot.createdAt).toLocaleDateString()} at {' '}
                                     {new Date(spot.createdAt).toLocaleTimeString()}
                                 </p>
@@ -61,19 +61,7 @@ return (
                             <> 
                         <div className={styles.buttonContainer}>             
                             <Link to={`/spots/${spotId}/edit`} 
-                            style={{
-                                display: 'inline-block',
-                                width: '100%',
-                                padding: '10px 20px',
-                                color: '#fff',
-                                backgroundColor: '#007bff',
-                                textDecoration: 'none',
-                                borderRadius: '5px',
-                                border: 'none',
-                                cursor: 'pointer',
-                                fontSize: '16px',
-                                textAlign: 'center',   
-                            }}
+                            className={styles.editButton}
                             >Edit</Link>
                             <button onClick={() => props.handleDeleteSpot(spotId)}>Delete</button>
                         </div>      
@@ -106,18 +94,7 @@ return (
                                 {guest.author._id === user._id && (
                                 <>
                                 <Link to={`/spots/${spotId}/guests/${guest._id}/edit`}
-                                 style={{
-                                    display: 'inline-block',
-                                    padding: '10px 20px',
-                                    color: '#fff',
-                                    backgroundColor: '#007bff',
-                                    textDecoration: 'none',
-                                    borderRadius: '5px',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                    fontSize: '16px',
-                                    textAlign: 'center',   
-                                }}>Edit</Link>
+                                className={styles.editButton}>Edit</Link>
                                 <button onClick={()=> handleDeleteGuest(guest._id)}>Delete Guest</button>
                                 </> 
                               ) }
