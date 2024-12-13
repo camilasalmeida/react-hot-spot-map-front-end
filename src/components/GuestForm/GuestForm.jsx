@@ -56,88 +56,92 @@ const { spotId, guestId } = useParams();
 
   if (spotId && guestId)
     return (
-  <main className={styles.container}> 
+  <main className={styles.EditContainer}> 
       <form onSubmit={handleSubmit}>
         <h2>Edit Guest</h2>
+        <div className={styles.editForm}> 
         <label htmlFor="name">
-          Name <span style={{ color: "red" }}>*</span>
-        </label>
-        <input
-          required
-          type="text"
-          name="name"
-          id="name"
-          placeholder="example: Blake Peak"
-          value={formData.name || ""}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="email">
-          Email <span style={{ color: "red" }}>*</span>
-        </label>
-        <input
-          required
-          type="email"
-          name="email"
-          id="email"
-          placeholder="blakepeak@example.com"
-          value={formData.email || ""}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="date">Date</label>
-        <input
-          type="date"
-          name="date"
-          id="date"
-          value={formData.date || ""}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="time">Time</label>
-        <input
-          type="time"
-          name="time"
-          id="time"
-          value={formData.time || ""}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="message">Message</label>
-        <textarea
-          name="message"
-          id="message"
-          value={formData.message || ""}
-          onChange={handleChange}
-          placeholder="Write your message or note here (optional)"
-        />
-
-        <label htmlFor="status">
-          Status<span style={{ color: "red" }}>*</span>
-        </label>
-        <select
-          required
-          name="status"
-          id="status"
-          value={formData.status || "Pending"} 
-          onChange={handleChange}
-        >
-          <option value="Pending">Pending</option>
-          <option value="Confirmed">Confirmed</option>
-          <option value="Rejected">Rejected</option>
-        </select>
-
-        <label htmlFor="imageUpload">Upload Image (Optional)</label>
-        <input
-          type="file"
-          name="image"
-          id="imageUpload"
-          accept="image/*"
-          onChange={handleChange}
-        />
-        <small>Accepted file types: JPG, PNG, etc.</small>
+        Name <span style={{ color: "red" }}>*</span>
+      </label>
+      <input
+        required
+        type="text"
+        name="name"
+        id="name"
+        placeholder="example: Blake Peak"
+        value={formData.name || ""}
+        onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: '8px' }}
+      />
+      <label htmlFor="email">
+        Email <span style={{ color: "red" }}>*</span>
+      </label>
+      <input
+        required
+        type="email"
+        name="email"
+        id="email"
+        placeholder="blakepeak@example.com"
+        value={formData.email || ""}
+        onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
+      />
+      <label htmlFor="date">Date<span style={{ color: "red" }}>*</span></label>
+      <input
+        required
+        type="date"
+        name="date"
+        id="date"
+        value={formData.date || ""}
+        onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
+      />
+      <label htmlFor="time">Time<span style={{ color: "red" }}>*</span></label>
+      <input
+        type="time"
+        name="time"
+        id="time"
+        value={formData.time || ""}
+        onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
+      />
+      <label htmlFor="message">Message</label>
+      <textarea
+        name="message"
+        id="message"
+        value={formData.message || ""}
+        onChange={handleChange}
+        placeholder="Write your message or note here (optional)"
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px", height: "60px" }}
+      />
+      <label htmlFor="status">
+        Status<span style={{ color: "red" }}>*</span>
+      </label>
+      <select
+        required
+        name="status"
+        id="status"
+        value={formData.status || "Pending"} 
+        onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
+      >
+        <option value="Pending">Pending</option>
+        <option value="Confirmed">Confirmed</option>
+        <option value="Rejected">Rejected</option>
+      </select>
+      <label htmlFor="imageUpload">Upload Image (Optional)</label>
+      <input
+        type="file"
+        name="image"
+        id="imageUpload"
+        accept="image/*"
+        onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
+      />
+      <small>Accepted file types: JPG, PNG, etc.</small>
 
         <button type="submit">SUBMIT UPDATE</button>
+        </div>
       </form>
       </main>
     )
@@ -155,6 +159,7 @@ const { spotId, guestId } = useParams();
         placeholder="example: Blake Peak"
         value={formData.name || ""}
         onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: '8px' }}
       />
 
       <label htmlFor="email">
@@ -168,6 +173,7 @@ const { spotId, guestId } = useParams();
         placeholder="blakepeak@example.com"
         value={formData.email || ""}
         onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
 
       <label htmlFor="date">Date<span style={{ color: "red" }}>*</span></label>
@@ -178,6 +184,7 @@ const { spotId, guestId } = useParams();
         id="date"
         value={formData.date || ""}
         onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
 
       <label htmlFor="time">Time<span style={{ color: "red" }}>*</span></label>
@@ -188,6 +195,7 @@ const { spotId, guestId } = useParams();
         id="time"
         value={formData.time || ""}
         onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
 
       <label htmlFor="message">Message</label>
@@ -197,6 +205,7 @@ const { spotId, guestId } = useParams();
         value={formData.message || ""}
         onChange={handleChange}
         placeholder="Write your message or note here (optional)"
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px", height: "60px" }}
       />
 
       <label htmlFor="status">
@@ -208,6 +217,7 @@ const { spotId, guestId } = useParams();
         id="status"
         value={formData.status || "Pending"} 
         onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       >
         <option value="Pending">Pending</option>
         <option value="Confirmed">Confirmed</option>
@@ -221,10 +231,11 @@ const { spotId, guestId } = useParams();
         id="imageUpload"
         accept="image/*"
         onChange={handleChange}
+        style={{ width: "100%", padding: "7px", marginBottom: "10px", fontSize: "18px", borderRadius: "8px" }}
       />
       <small>Accepted file types: JPG, PNG, etc.</small>
 
-      <button type="submit">Submit and Invite
+      <button type="submit" style={{ marginTop: "15px"}}>Submit and Invite
       </button>
     </form>
   )

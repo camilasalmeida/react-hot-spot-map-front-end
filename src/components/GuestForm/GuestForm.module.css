@@ -5,25 +5,24 @@
     padding: 30px 30px;
     width: 440px;
     height: 620px;
-    background-color: #bc002f;
+    /* background-color: #bc002f; */
     color: black;
     font-size: 20px;
-    background-color: var(--card-background);
+    /* background-color: var(--card-background);
     -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-    -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+    -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25); */
     box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
     margin-bottom: 1px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .guestFormContainer {
-    background-color: blue;
     display: flex;
     flex-direction: column;
     padding: 30px 30px;
-    width: 440px;
-    height: 620px;
-    background-color: #bc002f;
+    width: 100%;
+    height: 800px;
+    /* background-color: #bc002f; */
     color: black;
     font-size: 20px;
     background-color: var(--card-background);
@@ -31,9 +30,41 @@
     -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
     box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
     margin-bottom: 1px;
-    margin-top: 40px;
-
+    margin-top: 0px;
+    
 }
 
+.EditContainer {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+    width: 430px;
+    margin-top:200px;
+    padding: 20px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background-color: var(--card-background);
+    -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+    -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+    box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+      margin-bottom: 100px;
+      box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f8f9;
+    height: 620px;
+    width: 100%;
+    margin-top: 0px;
+    padding: 30px 30px;
+    border-radius: 10px;
+    border: 0.05px solid black;
+    box-shadow: 0 0 1px 0 black;
+}
 
 

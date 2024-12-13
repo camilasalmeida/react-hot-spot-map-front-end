@@ -7,6 +7,7 @@
     align-items: center;
     flex-direction: column;
     background-color: #fafafa;
+
   }
 
 
@@ -15,7 +16,7 @@
     /* background-color: blue; */
     display: flex;
     flex-direction: column;
-    padding: 60px;
+    padding: 40px;
 }
   
 
@@ -40,13 +41,13 @@
     cursor: pointer;
   }
 
-
 .container header article p {
   display: flex;
-  background-color: aqua;
-  padding: 1px;
-  margin: 2px;
-  background-color: rgb(234, 234, 204);
+  padding: 2px;
+  margin: 3px;
+  background-color: #EAEAEA;
+  /* opacity: 0.05 !important; */
+  border-radius: 4px;
 }
 
 
@@ -55,37 +56,39 @@
     display: flex;
     flex-direction: column;
     /* background-color: brown; */
+    background-color: #fafafa;
     width: 440px;
     height: 650px;
     margin-bottom: 1px;
 }
 
 .guestList {
-    background-color: white;
+    /* background-color: rgb(230, 66, 66); */
     display: flex;
     width: 440px;
     flex-direction: column;
-    padding: 40px 30px;
-    margin-top: 1px;
+    padding: 30px 30px;
+    margin-top: 100px;
     border: 1px solid var(--border);
   background-color: var(--card-background);
   -moz-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   -webkit-box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
   box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-    margin-bottom: 20px;
+    margin-bottom: 100px;
     box-shadow: -1px 5px 19px -5px rgba(0,0,0,0.25);
-  margin-bottom: 1px;
 
 }
 
 .guestArticle {
-    background-color: #ffffff;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    height: 400px;
-    margin-top: 40px;
-    padding: 20px;
-    border-radius: 15px;
+    height: 450px;
+    margin-top: 20px;
+    padding: 20px 20px;
+    border-radius: 10px;
+    border: 0.1px solid black;
+    box-shadow: 0 0 1px 0 black;
 }
 
 .editButton {
@@ -100,12 +103,13 @@
   cursor: pointer;
   font-size: 16px;
   text-align: center;
-  margin-top: 17px;
+  margin-top: 20px;
 }
 
 .editButton:hover {
   cursor: pointer;
   background-color: #cda780;
   color:white;
+  border: 1px solid white;
 }
 
